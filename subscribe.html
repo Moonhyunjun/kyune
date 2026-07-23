@@ -9,24 +9,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/subscribe.css">
 </head>
 <body>
 
-  <header class="site-header header-solid scrolled" id="siteHeader">
+  <!--
+    독립형 구독 페이지.
+    기존 kyune.kr 사이트의 어떤 파일에도 의존하지 않습니다.
+    subscribe.html + css/subscribe.css + js/subscribe.js 세 파일만
+    기존 사이트에 올리고, 홈에서 이 페이지로 링크를 걸면 됩니다.
+    아래 "/" 링크는 기존 홈 주소로 유지하세요.
+  -->
+
+  <header class="site-header">
     <nav class="nav container">
-      <a href="index.html" class="logo">KYUNE</a>
-      <ul class="nav-links">
-        <li><a href="index.html#philosophy">철학</a></li>
-        <li><a href="index.html#product">제품</a></li>
-        <li><a href="index.html#journal">저널</a></li>
-        <li><a href="index.html#faq">FAQ</a></li>
-        <li><a href="subscribe.html" aria-current="page">영양제 구독</a></li>
-      </ul>
-      <a href="#subscribe" class="nav-cta">신청하기</a>
-      <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false">
-        <span></span><span></span>
-      </button>
+      <a href="/" class="logo">KYUNE</a>
+      <a href="/" class="nav-home">← 홈으로</a>
     </nav>
   </header>
 
@@ -48,18 +46,18 @@
     <!-- How it works -->
     <section class="how section">
       <div class="container narrow">
-        <div class="philosophy-grid">
-          <div class="philosophy-item">
+        <div class="how-grid">
+          <div class="how-item">
             <span class="num">01</span>
             <h3>케이스와 함께 시작</h3>
             <p>KYUNE 알약케이스를 선택하세요. 이미 갖고 계시다면 구독만 시작하셔도 좋습니다.</p>
           </div>
-          <div class="philosophy-item">
+          <div class="how-item">
             <span class="num">02</span>
             <h3>간단한 설문</h3>
             <p>수면, 컨디션, 식습관에 대한 짧은 질문으로 지금 필요한 것을 파악합니다.</p>
           </div>
-          <div class="philosophy-item">
+          <div class="how-item">
             <span class="num">03</span>
             <h3>매달 셀렉 배송</h3>
             <p>검증된 영양제가 하루 루틴에 맞춰 구성되어 매월 첫째 주에 도착합니다. 셀렉션의 이유는 카드로 함께.</p>
@@ -85,7 +83,7 @@
               <li>매월 자동 결제</li>
               <li>언제든 해지 가능</li>
             </ul>
-            <button class="btn btn-outline plan-select" data-plan-name="1개월 구독" data-plan-price="월 69,000원">이 플랜 선택</button>
+            <button class="btn btn-outline plan-select" data-plan-name="1개월 구독">이 플랜 선택</button>
           </article>
 
           <article class="plan-card" data-plan="quarterly">
@@ -96,7 +94,7 @@
               <li>총 195,000원 일시 결제</li>
               <li>월간 대비 약 6% 할인</li>
             </ul>
-            <button class="btn btn-outline plan-select" data-plan-name="3개월 구독" data-plan-price="월 65,000원">이 플랜 선택</button>
+            <button class="btn btn-outline plan-select" data-plan-name="3개월 구독">이 플랜 선택</button>
           </article>
 
           <article class="plan-card plan-featured" data-plan="biannual">
@@ -109,7 +107,7 @@
               <li>월간 대비 약 10% 할인</li>
               <li>알약케이스 증정</li>
             </ul>
-            <button class="btn btn-primary plan-select" data-plan-name="6개월 구독" data-plan-price="월 62,000원">이 플랜 선택</button>
+            <button class="btn btn-primary plan-select" data-plan-name="6개월 구독">이 플랜 선택</button>
           </article>
 
           <article class="plan-card" data-plan="annual">
@@ -121,7 +119,7 @@
               <li>월간 대비 약 14% 할인</li>
               <li>알약케이스 증정 + 리미티드 컬러 우선 구매</li>
             </ul>
-            <button class="btn btn-outline plan-select" data-plan-name="12개월 구독" data-plan-price="월 59,000원">이 플랜 선택</button>
+            <button class="btn btn-outline plan-select" data-plan-name="12개월 구독">이 플랜 선택</button>
           </article>
         </div>
 
@@ -193,21 +191,11 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <p class="logo">KYUNE</p>
-        <p class="footer-tag">하루의 영양을 담는 가장 단정한 방법</p>
-      </div>
-      <div class="footer-links">
-        <a href="index.html#philosophy">철학</a>
-        <a href="index.html#product">제품</a>
-        <a href="subscribe.html">영양제 구독</a>
-        <a href="index.html#faq">FAQ</a>
-      </div>
+    <div class="container">
       <p class="footer-copy">© 2026 KYUNE. All rights reserved. · kyune.kr</p>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/subscribe.js"></script>
 </body>
 </html>
