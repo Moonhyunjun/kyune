@@ -340,6 +340,44 @@ img { max-width: 100%; display: block; }
 .box-note { font-size: 13px; color: var(--stone); }
 
 /* --------------------------------------------------------------------------
+   Subscription CTA (메인 페이지 → 구독 페이지 유도)
+   -------------------------------------------------------------------------- */
+
+.subscribe-cta-panel {
+  background: var(--ink);
+  color: var(--linen);
+  padding: clamp(56px, 8vw, 104px) clamp(28px, 6vw, 104px);
+  text-align: center;
+}
+
+.subscribe-cta-panel .section-eyebrow { color: var(--stone-light); }
+
+.subscribe-cta-panel .section-title { color: var(--linen); }
+
+.subscribe-cta-panel .lead {
+  color: rgba(244, 240, 233, 0.72);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subscribe-cta-panel .btn-primary {
+  background: var(--linen);
+  color: var(--ink);
+  border-color: var(--linen);
+}
+.subscribe-cta-panel .btn-primary:hover { background: var(--white); }
+
+/* --------------------------------------------------------------------------
+   Subscribe page hero
+   -------------------------------------------------------------------------- */
+
+.page-hero {
+  padding: calc(76px + clamp(56px, 9vw, 112px)) 0 clamp(24px, 4vw, 48px);
+}
+
+.page-hero .lead { margin-bottom: 0; }
+
+/* --------------------------------------------------------------------------
    Plans
    -------------------------------------------------------------------------- */
 
