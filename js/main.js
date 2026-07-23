@@ -29,10 +29,14 @@
   // 플랜 선택 → 신청 폼으로 스크롤 + 플랜 프리셋
   const planField = document.getElementById('planField');
   if (planField) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     document.querySelectorAll('.plan-select').forEach((button) => {
       button.addEventListener('click', () => {
         planField.value = button.dataset.planName;
-        document.getElementById('subscribe').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.getElementById('subscribe').scrollIntoView({
+          behavior: prefersReducedMotion ? 'auto' : 'smooth',
+          block: 'center',
+        });
       });
     });
   }

@@ -50,6 +50,19 @@ python3 -m http.server 8000
 (`kyune-waitlist` 키)에 저장하고 완료 안내를 표시합니다.
 결제/구독 백엔드가 준비되면 `js/main.js`의 submit 핸들러를 API 호출로 교체하면 됩니다.
 
+## UI/UX Pro Max 스킬
+
+`.claude/skills/ui-ux-pro-max/`에 [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
+스킬이 설치되어 있다. Claude Code에서 UI/UX 작업 시 자동으로 활용되며,
+디자인 시스템 생성은 다음처럼 직접 실행할 수도 있다:
+
+```bash
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "premium wellness ecommerce" --design-system -p "KYUNE"
+```
+
+스킬의 체크리스트를 반영해 적용된 항목: 텍스트 대비 WCAG AA(4.5:1) 충족,
+`:focus-visible` 키보드 포커스 스타일, `prefers-reduced-motion` 대응.
+
 ## 다음 단계 후보
 
 - 결제 연동 (토스페이먼츠 빌링 / 아임포트 정기결제)

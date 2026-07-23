@@ -6,7 +6,8 @@
 :root {
   --ky-linen: #f4f0e9;
   --ky-linen-deep: #ece6db;
-  --ky-stone: #8d867b;
+  /* 텍스트용 스톤 — 리넨 배경 위 대비 4.9:1 (WCAG AA) */
+  --ky-stone: #6e675a;
   --ky-stone-light: #b5aea2;
   --ky-wood: #6b5843;
   --ky-ink: #2b2823;
@@ -367,7 +368,29 @@ body {
   text-align: center;
 }
 
-.footer-copy { font-size: 12px; color: var(--ky-stone-light); }
+.footer-copy { font-size: 12px; color: var(--ky-stone); }
+
+/* Accessibility -------------------------------------------------------- */
+
+.btn:focus-visible,
+.logo:focus-visible,
+.nav-home:focus-visible,
+.faq-item summary:focus-visible,
+.plan-select:focus-visible {
+  outline: 2px solid var(--ky-wood);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
 
 /* Responsive ------------------------------------------------------------- */
 
