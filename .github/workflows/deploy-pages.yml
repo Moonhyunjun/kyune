@@ -33,6 +33,7 @@ jobs:
           cp subscribe.html _site/subscribe.html
           cp css/subscribe.css _site/css/
           cp js/subscribe.js _site/js/
+          cp widget.js _site/widget.js
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
