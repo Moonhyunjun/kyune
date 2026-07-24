@@ -15,7 +15,7 @@ export default function SubscribeCta() {
         <br />그 안은 매달 새롭게.
       </p>
       <p
-        className="reveal mx-auto mt-6 max-w-md text-[13px] leading-7 text-paper/60"
+        className="reveal mx-auto mt-6 max-w-md text-[14px] leading-8 text-paper/75"
         data-d="2"
       >
         KYUNE이 성분과 브랜드를 검증해 셀렉한 영양제가 매달 리추얼에 맞춰

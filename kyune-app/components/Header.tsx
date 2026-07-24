@@ -75,7 +75,7 @@ export default function Header() {
           <Link
             key={item.label}
             href={item.href}
-            className={`whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.18em] transition-colors sm:text-[12px] ${
+            className={`whitespace-nowrap text-[12px] font-medium uppercase tracking-[0.16em] transition-colors sm:text-[13px] ${
               pathname === item.href.split("?")[0] && item.label === "SHOP"
                 ? "text-ink"
                 : "text-ink/70 hover:text-accent"
@@ -87,13 +87,13 @@ export default function Header() {
         <span className="hidden h-3 w-px bg-line sm:block" />
         <Link
           href={authItem.href}
-          className="whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.18em] text-ink/70 transition-colors hover:text-accent sm:text-[12px]"
+          className="whitespace-nowrap text-[12px] font-medium uppercase tracking-[0.16em] text-ink/70 transition-colors hover:text-accent sm:text-[13px]"
         >
           {authItem.label}
         </Link>
         <Link
           href="/cart"
-          className="whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.18em] text-accent sm:text-[12px]"
+          className="whitespace-nowrap text-[12px] font-medium uppercase tracking-[0.16em] text-accent sm:text-[13px]"
           aria-label="장바구니"
         >
           CART{ready && totalCount > 0 ? ` (${totalCount})` : ""}
