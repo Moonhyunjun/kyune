@@ -20,3 +20,20 @@ create policy "own orders select" on public.orders
 
 create index if not exists orders_user_id_idx on public.orders (user_id);
 create index if not exists orders_created_at_idx on public.orders (created_at desc);
+
+-- KYUNE 구독 사전신청 테이블
+-- (schema.sql 전체를 다시 Run 해도 안전 — if not exists)
+
+create table if not exists public.subscribe_waitlist (
+  id uuid primary key default gen_random_uuid(),
+  plan text not null,                     -- "1개월" / "3개월" / "6개월" / "12개월"
+  name text not null,
+  email text not null,
+  created_at timestamptz not null default now()
+);
+
+-- RLS: 읽기/쓰기 모두 서버(service role)만 수행. anon 정책 없음.
+alter table public.subscribe_waitlist enable row level security;
+
+create index if not exists subscribe_waitlist_created_at_idx
+  on public.subscribe_waitlist (created_at desc);
