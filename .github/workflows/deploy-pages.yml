@@ -25,15 +25,13 @@ jobs:
       - uses: actions/configure-pages@v5
         with:
           enablement: true
-      # 구독 페이지만 배포 — 기존 kyune.kr에서 링크로 연결해 쓰는 독립 페이지
-      - name: Assemble subscription-only site
+      # 전체 사이트 배포 — 메인(알약케이스) + 구독 페이지 + 위젯
+      - name: Assemble site
         run: |
           mkdir -p _site/css _site/js
-          cp subscribe.html _site/index.html
-          cp subscribe.html _site/subscribe.html
-          cp css/subscribe.css _site/css/
-          cp js/subscribe.js _site/js/
-          cp widget.js _site/widget.js
+          cp index.html subscribe.html widget.js _site/
+          cp css/style.css css/subscribe.css _site/css/
+          cp js/main.js js/subscribe.js _site/js/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
