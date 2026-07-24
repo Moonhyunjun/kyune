@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+<defs>
+<linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d8d4cc"/><stop offset="1" stop-color="#c3bfb6"/></linearGradient>
+<radialGradient id="spot" cx="0.4" cy="0.3" r="0.85"><stop offset="0" stop-color="#f1eee7" stop-opacity="0.85"/><stop offset="1" stop-color="#f1eee7" stop-opacity="0"/></radialGradient>
+<radialGradient id="vig" cx="0.5" cy="0.5" r="0.75"><stop offset="0.55" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#1f1c17" stop-opacity="0.26"/></radialGradient>
+<linearGradient id="plate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f2ec"/><stop offset="1" stop-color="#ddd9d0"/></linearGradient>
+<linearGradient id="wsh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a362f" stop-opacity="0.28"/><stop offset="1" stop-color="#3a362f" stop-opacity="0"/></linearGradient>
+<radialGradient id="orbg" cx="0.35" cy="0.28" r="0.95"><stop offset="0" stop-color="#f2f3f4"/><stop offset="0.4" stop-color="#bfc2c5"/><stop offset="0.75" stop-color="#84888d"/><stop offset="1" stop-color="#63676c"/></radialGradient>
+<filter id="blurS"><feGaussianBlur stdDeviation="5"/></filter>
+<filter id="blurM"><feGaussianBlur stdDeviation="9"/></filter>
+<filter id="texw"><feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0.55 0 0 0 0 0.53 0 0 0 0 0.49 0 0 0 0.07 0"/></filter>
+<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0.08 0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0.06 0"/></filter>
+</defs>
+<rect width="800" height="800" fill="url(#wall)"/>
+<rect width="800" height="800" fill="url(#spot)"/>
+<rect width="800" height="800" filter="url(#texw)" opacity="0.6"/>
+<path d="M600 120 Q 620 260 590 420" stroke="#a09c92" stroke-width="1.1" fill="none" opacity="0.4"/>
+<rect x="168" y="428" width="464" height="70" fill="url(#wsh)" filter="url(#blurM)"/>
+<ellipse cx="292" cy="408" rx="46" ry="9" fill="#3a362f" opacity="0.3" filter="url(#blurS)"/>
+<circle cx="290" cy="376" r="30" fill="url(#orbg)"/>
+<ellipse cx="279" cy="362" rx="10" ry="7" fill="#ffffff" opacity="0.8" transform="rotate(-22 279 362)"/>
+<rect x="468" y="316" width="11" height="92" rx="2" fill="#b4b8bc"/>
+<rect x="470" y="316" width="3" height="92" fill="#e6e8ea" opacity="0.7"/>
+<rect x="490" y="342" width="9" height="66" rx="2" fill="#c6c9cd"/>
+<g>
+<rect x="176" y="408" width="448" height="15" rx="2" fill="url(#plate)"/>
+<rect x="176" y="420" width="448" height="4" rx="1" fill="#a9a49a" opacity="0.7"/>
+<rect x="176" y="408" width="448" height="2.5" fill="#ffffff" opacity="0.85"/>
+</g>
+<rect width="800" height="800" fill="url(#vig)"/>
+<rect width="800" height="800" filter="url(#grain)"/>
+</svg>

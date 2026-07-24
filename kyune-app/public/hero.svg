@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+<defs>
+<linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d8d4cc"/><stop offset="1" stop-color="#c6c2b9"/></linearGradient>
+<linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b0aca3"/><stop offset="1" stop-color="#98948a"/></linearGradient>
+<radialGradient id="spot" cx="0.38" cy="0.3" r="0.7"><stop offset="0" stop-color="#f2efe8" stop-opacity="0.85"/><stop offset="1" stop-color="#f2efe8" stop-opacity="0"/></radialGradient>
+<radialGradient id="vig" cx="0.5" cy="0.5" r="0.72"><stop offset="0.55" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#1d1a15" stop-opacity="0.3"/></radialGradient>
+<linearGradient id="steel" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9b9a96"/><stop offset="0.12" stop-color="#c9c8c4"/><stop offset="0.3" stop-color="#a6a5a1"/><stop offset="0.5" stop-color="#d6d5d1"/><stop offset="0.72" stop-color="#a09f9b"/><stop offset="0.9" stop-color="#bcbbb7"/><stop offset="1" stop-color="#94938f"/></linearGradient>
+<linearGradient id="steelIn" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7d7c78"/><stop offset="0.5" stop-color="#96958f"/><stop offset="1" stop-color="#6f6e6a"/></linearGradient>
+<linearGradient id="matte" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#93938f"/><stop offset="0.2" stop-color="#c2c2be"/><stop offset="0.45" stop-color="#d3d3cf"/><stop offset="0.7" stop-color="#adada9"/><stop offset="1" stop-color="#888884"/></linearGradient>
+<radialGradient id="orb" cx="0.36" cy="0.28" r="0.95"><stop offset="0" stop-color="#f6f7f8"/><stop offset="0.32" stop-color="#c9ccce"/><stop offset="0.62" stop-color="#8f9397"/><stop offset="1" stop-color="#63676c"/></radialGradient>
+<filter id="blurL"><feGaussianBlur stdDeviation="16"/></filter>
+<filter id="blurS"><feGaussianBlur stdDeviation="5"/></filter>
+<filter id="tex"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0.42  0 0 0 0 0.40 0 0 0 0 0.36 0 0 0 0.18 0"/></filter>
+<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0.08 0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0.06 0"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="url(#wall)"/>
+<rect width="1600" height="1000" fill="url(#spot)"/>
+<rect y="640" width="1600" height="360" fill="url(#floor)"/>
+<rect y="640" width="1600" height="360" filter="url(#tex)" opacity="0.55"/>
+<path d="M140 800 Q 420 830 700 880 T 1300 960" stroke="#7f7b71" stroke-width="1.6" fill="none" opacity="0.45"/>
+<path d="M1060 680 Q 1120 720 1100 790" stroke="#8a867c" stroke-width="1.2" fill="none" opacity="0.35"/>
+<path d="M1180 120 Q 1200 300 1170 480" stroke="#a29e94" stroke-width="1.2" fill="none" opacity="0.35"/>
+<!-- vase left -->
+<ellipse cx="518" cy="778" rx="112" ry="16" fill="#332f28" opacity="0.45" filter="url(#blurL)"/>
+<g>
+<path d="M460 468 L460 744 Q460 768 518 768 Q576 768 576 744 L576 468 Q576 462 518 462 Q460 462 460 468 Z" fill="url(#matte)"/>
+<ellipse cx="518" cy="466" rx="58" ry="10" fill="#767672"/>
+<ellipse cx="518" cy="466" rx="44" ry="7" fill="#4f4f4b"/>
+<rect x="470" y="480" width="7" height="260" fill="#e4e4e0" opacity="0.45"/>
+</g>
+<!-- arc table center-right -->
+<ellipse cx="960" cy="800" rx="260" ry="30" fill="#332f28" opacity="0.42" filter="url(#blurL)"/>
+<path d="M1160 796 L1260 796 L1215 520 L1170 520 Z" fill="#3a362f" opacity="0.13" filter="url(#blurS)"/>
+<g>
+<path d="M790 796 L790 540 Q790 496 834 496 L1086 496 Q1130 496 1130 540 L1130 796 L1088 796 L1088 562 Q1088 538 1064 538 L856 538 Q832 538 832 562 L832 796 Z" fill="url(#steel)"/>
+<path d="M832 562 Q832 538 856 538 L1064 538 Q1088 538 1088 562 L1088 566 L832 566 Z" fill="url(#steelIn)" opacity="0.85"/>
+<path d="M790 540 Q790 496 834 496 L1086 496 Q1130 496 1130 540 L1126 540 Q1126 500 1086 500 L834 500 Q794 500 794 540 Z" fill="#efeeea" opacity="0.8"/>
+</g>
+<!-- orb on table -->
+<ellipse cx="1010" cy="494" rx="46" ry="7" fill="#2f2b24" opacity="0.3" filter="url(#blurS)"/>
+<circle cx="1004" cy="452" r="44" fill="url(#orb)"/>
+<ellipse cx="988" cy="430" rx="15" ry="10" fill="#ffffff" opacity="0.8" transform="rotate(-24 988 430)"/>
+<rect width="1600" height="1000" fill="url(#vig)"/>
+<rect width="1600" height="1000" filter="url(#grain)"/>
+</svg>

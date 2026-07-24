@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  /* KYUNE design tokens — warm linen wellness (flat editorial 구조는 유지) */
+  --color-paper: #faf7f2;
+  --color-cream: #f1ece3;
+  --color-sand: #e8e1d4;
+  --color-ink: #211d17;
+  --color-mist: #93887a;
+  --color-line: #e5ddcf;
+  --color-accent: #6b7757;
+
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR",
+    sans-serif;
+  --font-serif: "Cormorant Garamond", "Noto Serif KR", "Times New Roman",
+    serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+/* ── scroll reveal (animation-on-scroll skill) ─────────────────── */
+@keyframes revealIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: revealIn 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation-play-state: paused;
+}
+.reveal.animate {
+  animation-play-state: running;
+}
+.reveal[data-d="1"] {
+  animation-delay: 0.1s;
+}
+.reveal[data-d="2"] {
+  animation-delay: 0.2s;
+}
+.reveal[data-d="3"] {
+  animation-delay: 0.3s;
+}
+.reveal[data-d="4"] {
+  animation-delay: 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+}
+
+/* ── marquee ticker (marquee-loop skill) ───────────────────────── */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation-duration: 240s;
+  }
+}
+
+/* ── beautiful-shadows (제한적으로만 사용) ──────────────────────── */
+.shadow-beautiful-lg {
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+/* 상품 카드: 패션 브랜드식 플랫 타일 (그림자 없음) */
+.shadow-card {
+  box-shadow: none;
+}

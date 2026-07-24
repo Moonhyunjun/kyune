@@ -46,24 +46,32 @@ const faqs = [
 
 export default function SubscribePage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+    <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
       {/* Intro */}
-      <p className="font-mono text-[11px] tracking-[0.2em] text-mist">
-        SUPPLEMENT SUBSCRIPTION
+      <p className="reveal font-mono text-[10px] uppercase tracking-[0.32em] text-mist">
+        Supplement Subscription
       </p>
-      <h1 className="mt-4 max-w-2xl text-3xl font-medium leading-[1.35] tracking-[-0.02em] sm:text-4xl">
-        영양제 구독
+      <h1
+        className="reveal mt-5 max-w-2xl font-serif text-3xl leading-relaxed sm:text-[40px] sm:leading-[1.45]"
+        data-d="1"
+      >
+        수백 개의 영양제 앞에서
+        <br />
+        고민하지 않으셔도 됩니다.
       </h1>
-      <p className="mt-6 max-w-md text-[15px] leading-8 text-mist">
-        수백 개의 영양제 앞에서 고민하지 않으셔도 됩니다. KYUNE이 성분과
-        브랜드를 검증해 셀렉한 영양제가 매달 리추얼에 맞춰 문 앞에 도착합니다.
+      <p
+        className="reveal mt-6 max-w-md text-[14px] leading-8 text-mist"
+        data-d="2"
+      >
+        KYUNE이 성분과 브랜드를 검증해 셀렉한 영양제가 매달 리추얼에 맞춰 문
+        앞에 도착합니다.
       </p>
 
       {/* How it works */}
       <div className="mt-16 grid gap-10 border-t border-line pt-12 sm:grid-cols-3">
-        {steps.map((s) => (
-          <div key={s.num}>
-            <p className="font-mono text-[11px] tracking-[0.14em] text-mist">
+        {steps.map((s, i) => (
+          <div key={s.num} className="reveal" data-d={String(i)}>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
               {s.num}
             </p>
             <h2 className="mt-3 text-[15px] font-medium">{s.title}</h2>
@@ -72,15 +80,17 @@ export default function SubscribePage() {
         ))}
       </div>
 
-      {/* Plans + form (client) */}
+      {/* Plans + waitlist form (client) */}
       <SubscribeForm />
 
       {/* FAQ */}
       <div className="mt-20 border-t border-line pt-12">
-        <p className="font-mono text-[11px] tracking-[0.2em] text-mist">FAQ</p>
-        <div className="mt-6 divide-y divide-line border-b border-line">
+        <h2 className="text-[11px] font-bold uppercase tracking-[0.24em]">
+          FAQ
+        </h2>
+        <div className="mt-6 border-b border-line">
           {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
+            <details key={f.q} className="group border-t border-line py-4">
               <summary className="flex cursor-pointer list-none items-center justify-between text-[14px] font-medium [&::-webkit-details-marker]:hidden">
                 {f.q}
                 <span className="ml-4 font-serif text-lg text-mist transition-transform group-open:rotate-45">

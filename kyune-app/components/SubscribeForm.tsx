@@ -73,32 +73,35 @@ export default function SubscribeForm() {
   }
 
   return (
-    <div className="mt-20 border-t border-line pt-12">
-      <p className="font-mono text-[11px] tracking-[0.2em] text-mist">PLANS</p>
+    <div className="mt-16 border-t border-line pt-12">
+      <h2 className="text-[11px] font-bold uppercase tracking-[0.24em]">
+        Plans
+      </h2>
       <p className="mt-4 max-w-md text-[13px] leading-7 text-mist">
         기간이 길수록 월 요금이 낮아집니다. 셀렉션 구성은 모든 플랜이
         동일합니다.
       </p>
 
       {/* Plan cards */}
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {plans.map((p) => (
+      <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {plans.map((p, i) => (
           <button
             key={p.id}
             type="button"
             onClick={() => setSelected(p.id)}
             aria-pressed={selected === p.id}
-            className={`flex flex-col border p-6 text-left transition-colors ${
+            className={`reveal flex flex-col border p-6 text-left transition-colors ${
               selected === p.id
-                ? "border-ink bg-white"
+                ? "border-ink bg-cream/60"
                 : "border-line hover:border-mist"
             }`}
+            data-d={String(i % 4)}
           >
             <span className="flex items-baseline justify-between">
               <span className="text-[15px] font-medium">{p.name}</span>
               {p.featured && (
-                <span className="font-mono text-[10px] tracking-[0.14em] text-mist">
-                  BEST
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
+                  Best
                 </span>
               )}
             </span>
@@ -120,7 +123,7 @@ export default function SubscribeForm() {
           현재 첫 셀렉션을 준비하고 있습니다. 신청하시면 오픈 시 가장 먼저
           안내드리고, 얼리 구독 혜택을 드립니다.
         </p>
-        <div className="mt-6 space-y-4">
+        <div className="mt-6 space-y-3">
           <input
             type="text"
             value={name}
