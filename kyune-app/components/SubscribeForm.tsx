@@ -43,7 +43,7 @@ export default function SubscribeForm() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!name.trim() || !email.trim()) {
       setMessage("이름과 이메일을 입력해주세요.");
@@ -54,18 +54,36 @@ export default function SubscribeForm() {
       return;
     }
     const plan = plans.find((p) => p.id === selected);
+    const entry = {
+      plan: plan?.name,
+      name: name.trim(),
+      email: email.trim(),
+    };
+
+    // 서버(Supabase)에 저장하고, 실패하면 localStorage에 보존
+    let saved = false;
     try {
-      const raw = localStorage.getItem("kyune-subscribe-waitlist") ?? "[]";
-      const entries = JSON.parse(raw) as unknown[];
-      entries.push({
-        plan: plan?.name,
-        name: name.trim(),
-        email: email.trim(),
-        at: new Date().toISOString(),
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(entry),
       });
-      localStorage.setItem("kyune-subscribe-waitlist", JSON.stringify(entries));
+      saved = res.ok;
     } catch {
-      // 저장 실패해도 완료 안내는 그대로 진행
+      saved = false;
+    }
+    if (!saved) {
+      try {
+        const raw = localStorage.getItem("kyune-subscribe-waitlist") ?? "[]";
+        const entries = JSON.parse(raw) as unknown[];
+        entries.push({ ...entry, at: new Date().toISOString() });
+        localStorage.setItem(
+          "kyune-subscribe-waitlist",
+          JSON.stringify(entries)
+        );
+      } catch {
+        // 폴백 저장까지 실패해도 완료 안내는 그대로 진행
+      }
     }
     setName("");
     setEmail("");
