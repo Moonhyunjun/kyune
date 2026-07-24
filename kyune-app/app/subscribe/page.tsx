@@ -60,7 +60,7 @@ export default function SubscribePage() {
         고민하지 않으셔도 됩니다.
       </h1>
       <p
-        className="reveal mt-6 max-w-md text-[14px] leading-8 text-mist"
+        className="reveal mt-6 max-w-md text-[15px] leading-8 text-mist"
         data-d="2"
       >
         KYUNE이 성분과 브랜드를 검증해 셀렉한 영양제가 매달 리추얼에 맞춰 문
@@ -75,7 +75,7 @@ export default function SubscribePage() {
               {s.num}
             </p>
             <h2 className="mt-3 text-[15px] font-medium">{s.title}</h2>
-            <p className="mt-2 text-[13px] leading-7 text-mist">{s.body}</p>
+            <p className="mt-2 text-[14px] leading-7 text-mist">{s.body}</p>
           </div>
         ))}
       </div>
@@ -91,13 +91,13 @@ export default function SubscribePage() {
         <div className="mt-6 border-b border-line">
           {faqs.map((f) => (
             <details key={f.q} className="group border-t border-line py-4">
-              <summary className="flex cursor-pointer list-none items-center justify-between text-[14px] font-medium [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between text-[15px] font-medium [&::-webkit-details-marker]:hidden">
                 {f.q}
                 <span className="ml-4 font-serif text-lg text-mist transition-transform group-open:rotate-45">
                   +
                 </span>
               </summary>
-              <p className="mt-3 max-w-xl text-[13px] leading-7 text-mist">
+              <p className="mt-3 max-w-xl text-[14px] leading-7 text-mist">
                 {f.a}
               </p>
             </details>

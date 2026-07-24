@@ -95,7 +95,7 @@ export default function SubscribeForm() {
       <h2 className="text-[11px] font-bold uppercase tracking-[0.24em]">
         Plans
       </h2>
-      <p className="mt-4 max-w-md text-[13px] leading-7 text-mist">
+      <p className="mt-4 max-w-md text-[14px] leading-7 text-mist">
         기간이 길수록 월 요금이 낮아집니다. 셀렉션 구성은 모든 플랜이
         동일합니다.
       </p>
@@ -123,12 +123,12 @@ export default function SubscribeForm() {
                 </span>
               )}
             </span>
-            <span className="mt-1 text-[12px] text-mist">{p.desc}</span>
+            <span className="mt-1 text-[13px] text-mist">{p.desc}</span>
             <span className="mt-5 font-mono text-lg">
               {p.price.toLocaleString()}원
               <span className="text-[12px] text-mist"> / 월</span>
             </span>
-            <span className="mt-3 text-[11px] leading-5 text-mist">
+            <span className="mt-3 text-[12px] leading-6 text-mist">
               {p.note}
             </span>
           </button>
@@ -137,7 +137,7 @@ export default function SubscribeForm() {
 
       {/* Waitlist form */}
       <form onSubmit={submit} className="mt-12 max-w-md">
-        <p className="text-[13px] leading-7 text-mist">
+        <p className="text-[14px] leading-7 text-mist">
           현재 첫 셀렉션을 준비하고 있습니다. 신청하시면 오픈 시 가장 먼저
           안내드리고, 얼리 구독 혜택을 드립니다.
         </p>

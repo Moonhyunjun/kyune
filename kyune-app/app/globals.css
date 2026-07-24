@@ -6,7 +6,7 @@
   --color-cream: #f1ece3;
   --color-sand: #e8e1d4;
   --color-ink: #211d17;
-  --color-mist: #93887a;
+  --color-mist: #756a5b; /* 텍스트 대비 AA(4.9:1 on paper) — 기존 #93887a는 3.2:1 */
   --color-line: #e5ddcf;
   --color-accent: #6b7757;
 
