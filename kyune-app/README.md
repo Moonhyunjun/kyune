@@ -64,3 +64,5 @@ DB 저장(Supabase 등) + 주문 확인 메일 발송을 붙이면 됩니다.
 - 결제 금액은 클라이언트 값을 신뢰하지 않고 `/api/payments/confirm` 에서
   서버가 장바구니를 재계산해 검증한 뒤에만 승인 API를 호출합니다.
 - `TOSS_SECRET_KEY` 는 서버 전용 환경변수로만 사용하세요 (`NEXT_PUBLIC_` 접두사 금지).
+
+<!-- vercel-connect-probe -->
