@@ -23,7 +23,7 @@ export default function SubscribeCta() {
       </p>
       <Link
         href="/subscribe"
-        className="reveal mt-10 inline-block bg-paper px-6 py-3 text-[13px] font-bold uppercase tracking-[0.3em] text-ink transition-colors hover:bg-cream"
+        className="reveal mt-10 inline-block rounded-full bg-paper px-8 py-3.5 text-[13px] font-bold uppercase tracking-[0.3em] text-ink transition-colors hover:bg-cream"
         data-d="3"
       >
         Subscribe

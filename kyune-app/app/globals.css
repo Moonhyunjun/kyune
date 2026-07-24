@@ -2,13 +2,13 @@
 
 @theme {
   /* KYUNE design tokens — warm linen wellness (flat editorial 구조는 유지) */
-  --color-paper: #faf7f2;
-  --color-cream: #f1ece3;
-  --color-sand: #e8e1d4;
-  --color-ink: #211d17;
-  --color-mist: #756a5b; /* 텍스트 대비 AA(4.9:1 on paper) — 기존 #93887a는 3.2:1 */
-  --color-line: #e5ddcf;
-  --color-accent: #6b7757;
+  --color-paper: #fdf0f5;
+  --color-cream: #fad7e5;
+  --color-sand: #f6c3d6;
+  --color-ink: #4d1f30;
+  --color-mist: #8f4d67; /* 텍스트 대비 AA(5.5:1 on paper) */
+  --color-line: #f3c4d6;
+  --color-accent: #c2255c;
 
   --font-sans: "Pretendard Variable", Pretendard, -apple-system,
     BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR",
@@ -111,4 +111,17 @@ body {
 /* 상품 카드: 패션 브랜드식 플랫 타일 (그림자 없음) */
 .shadow-card {
   box-shadow: none;
+}
+
+/* ── candy capsules (hero) ─────────────────────────────────────── */
+@keyframes capsuleFloat {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 25deg)); }
+  50% { transform: translateY(-10px) rotate(var(--r, 25deg)); }
+}
+.capsule {
+  animation: capsuleFloat 5s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+@media (prefers-reduced-motion: reduce) {
+  .capsule { animation: none; }
 }
