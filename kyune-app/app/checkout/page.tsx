@@ -225,7 +225,7 @@ export default function CheckoutPage() {
         type="button"
         disabled={!payment || paying}
         onClick={pay}
-        className="mt-8 w-full bg-ink py-4 text-[13px] tracking-[0.14em] text-paper transition-opacity hover:opacity-85 disabled:opacity-40"
+        className="mt-8 w-full rounded-full bg-ink py-4 text-[13px] tracking-[0.14em] text-paper transition-opacity hover:opacity-85 disabled:opacity-40"
       >
         {paying ? "결제 진행 중..." : `${formatKRW(totalPrice)} 결제하기`}
       </button>
