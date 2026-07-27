@@ -47,25 +47,37 @@ const faqs = [
 export default function SubscribePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
-      {/* Intro */}
-      <p className="reveal font-mono text-[10px] uppercase tracking-[0.32em] text-mist">
-        Supplement Subscription
-      </p>
-      <h1
-        className="reveal mt-6 max-w-2xl text-[26px] font-medium leading-[1.3] tracking-[-0.015em] sm:text-[38px]"
-        data-d="1"
-      >
-        수백 개의 영양제 앞에서
-        <br />
-        고민하지 않으셔도 됩니다.
-      </h1>
-      <p
-        className="reveal mt-6 max-w-md text-[15px] leading-8 text-mist"
-        data-d="2"
-      >
-        KYUNE이 성분과 브랜드를 검증해 셀렉한 영양제가 매달 리추얼에 맞춰 문
-        앞에 도착합니다.
-      </p>
+      {/* Intro — 인물컷 스플릿 */}
+      <div className="grid items-center gap-10 sm:grid-cols-[1.1fr_1fr]">
+        <div>
+          <p className="reveal font-mono text-[10px] uppercase tracking-[0.32em] text-mist">
+            Supplement Subscription
+          </p>
+          <h1
+            className="reveal mt-6 max-w-2xl text-[26px] font-medium leading-[1.3] tracking-[-0.015em] sm:text-[38px]"
+            data-d="1"
+          >
+            수백 개의 영양제 앞에서
+            <br />
+            고민하지 않으셔도 됩니다.
+          </h1>
+          <p
+            className="reveal mt-6 max-w-md text-[15px] leading-8 text-mist"
+            data-d="2"
+          >
+            KYUNE이 성분과 브랜드를 검증해 셀렉한 영양제가 매달 리추얼에 맞춰
+            문 앞에 도착합니다.
+          </p>
+        </div>
+        <div className="reveal overflow-hidden" data-d="2">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/refs/portrait-square.jpg"
+            alt=""
+            className="aspect-square w-full object-cover"
+          />
+        </div>
+      </div>
 
       {/* How it works */}
       <div className="mt-16 grid gap-10 border-t border-line pt-12 sm:grid-cols-3">
