@@ -8,7 +8,7 @@ export default function SubscribeCta() {
         Supplement Subscription
       </p>
       <p
-        className="reveal mx-auto mt-6 max-w-3xl text-2xl font-bold leading-[1.4] tracking-[-0.02em] text-paper sm:text-[36px]"
+        className="reveal mx-auto mt-6 max-w-2xl text-xl font-medium leading-[1.55] tracking-[-0.01em] text-paper sm:text-[26px]"
         data-d="1"
       >
         오브제는 한 번,
@@ -23,7 +23,7 @@ export default function SubscribeCta() {
       </p>
       <Link
         href="/subscribe"
-        className="reveal mt-10 inline-block bg-paper px-8 py-3.5 text-[13px] font-bold uppercase tracking-[0.3em] text-ink transition-colors hover:bg-cream"
+        className="reveal mt-10 inline-block bg-paper px-7 py-3 text-[11px] font-medium uppercase tracking-[0.26em] text-ink transition-colors hover:bg-cream"
         data-d="3"
       >
         Subscribe

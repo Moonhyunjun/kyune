@@ -92,7 +92,7 @@ export default function SubscribeForm() {
 
   return (
     <div className="mt-16 border-t border-line pt-12">
-      <h2 className="text-[11px] font-bold uppercase tracking-[0.24em]">
+      <h2 className="text-[11px] font-medium uppercase tracking-[0.24em] text-mist">
         Plans
       </h2>
       <p className="mt-4 max-w-md text-[14px] leading-7 text-mist">

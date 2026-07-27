@@ -15,8 +15,6 @@ const nav = [
   { href: "/contact", label: "CONTACT" },
 ];
 
-const ticker =
-  "KYUNE® · MORNING & NIGHT RITUALS · A PLACE FOR EVERY HABIT · SEOUL · ".repeat(3);
 
 
 export default function Header() {
@@ -44,25 +42,12 @@ export default function Header() {
 
   return (
     <header className="border-b border-line bg-paper">
-      {/* ticker bar (marquee-loop) */}
-      <div className="overflow-hidden bg-ink py-1.5" aria-hidden>
-        <div className="marquee-track">
-          {[0, 1].map((i) => (
-            <span
-              key={i}
-              className="whitespace-pre font-mono text-[10px] uppercase tracking-[0.22em] text-paper"
-            >
-              {ticker}
-            </span>
-          ))}
-        </div>
-      </div>
 
       {/* big logotype */}
-      <div className="flex justify-center px-6 pb-2 pt-7 sm:pb-3 sm:pt-9">
+      <div className="flex justify-center px-6 pb-2 pt-8 sm:pb-3 sm:pt-10">
         <Link
           href="/"
-          className="text-3xl font-bold uppercase tracking-[0.42em] sm:text-5xl sm:tracking-[0.5em]"
+          className="text-xl font-semibold uppercase tracking-[0.5em] sm:text-2xl"
           style={{ marginRight: "-0.5em" }}
         >
           KYUNE
