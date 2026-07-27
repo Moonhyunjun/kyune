@@ -9,8 +9,8 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero — 풀블리드 인물컷 */}
-      <section className="relative h-[82vh] min-h-[540px] overflow-hidden">
+      {/* Hero — 풀블리드 인물컷, 투명 헤더 뒤까지 화면 전체를 채운다 */}
+      <section className="relative h-svh min-h-[540px] overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/refs/portrait-hero.jpg"
@@ -18,6 +18,7 @@ export default function Home() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-ink/10 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-ink/45 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 px-4 pb-12 sm:px-6 sm:pb-16">
           <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-white/80">
             Kyune® — Morning &amp; Night Rituals, Seoul
