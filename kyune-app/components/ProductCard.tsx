@@ -24,10 +24,10 @@ export default function ProductCard({
         )}
       </div>
       <div className="mt-3 flex items-baseline justify-between gap-2">
-        <p className="text-[13px] font-medium uppercase tracking-[0.1em] transition-colors group-hover:text-accent">
+        <p className="text-[12px] font-medium uppercase tracking-[0.12em] transition-colors group-hover:text-accent">
           {product.name}
         </p>
-        <p className="shrink-0 font-mono text-[12.5px] text-ink/80">
+        <p className="shrink-0 font-mono text-[12px] text-ink/70">
           {formatKRW(product.price)}
         </p>
       </div>

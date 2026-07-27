@@ -15,7 +15,7 @@ export default function Home() {
         <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-mist">
           Kyune® — Morning &amp; Night Rituals, Seoul
         </p>
-        <h1 className="mt-6 max-w-5xl text-[44px] font-black leading-[1.08] tracking-[-0.03em] sm:text-[88px] sm:leading-[1.02]">
+        <h1 className="mt-7 max-w-3xl text-[30px] font-medium leading-[1.25] tracking-[-0.015em] sm:text-[50px] sm:leading-[1.18]">
           하루의 양 끝을
           <br />
           정돈하는 리추얼.
@@ -27,13 +27,13 @@ export default function Home() {
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
             href="/shop"
-            className="bg-ink px-9 py-4 text-[12px] font-bold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-85"
+            className="bg-ink px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.2em] text-paper transition-opacity hover:opacity-85"
           >
             Shop All
           </Link>
           <Link
             href="/subscribe"
-            className="border border-ink px-9 py-4 text-[12px] font-bold uppercase tracking-[0.22em] transition-colors hover:bg-ink hover:text-paper"
+            className="border border-ink px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.2em] transition-colors hover:bg-ink hover:text-paper"
           >
             Subscribe
           </Link>
@@ -42,7 +42,7 @@ export default function Home() {
 
       {/* Signature — 주력: 알약케이스 + 구독 */}
       <section className="px-4 py-14 sm:px-6 sm:py-16">
-        <h2 className="mb-7 text-[12px] font-bold uppercase tracking-[0.24em]">
+        <h2 className="mb-7 text-[11px] font-medium uppercase tracking-[0.24em] text-mist">
           Signature
         </h2>
         <div className="grid gap-x-4 gap-y-10 sm:grid-cols-2">
@@ -58,7 +58,7 @@ export default function Home() {
                 className="aspect-square w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:aspect-[4/3]"
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="bg-paper px-7 py-3 text-[13px] font-bold uppercase tracking-[0.3em] transition-colors group-hover:bg-ink group-hover:text-paper">
+                <span className="bg-paper px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.26em] transition-colors group-hover:bg-ink group-hover:text-paper">
                   Pill Organizer
                 </span>
               </div>
@@ -83,7 +83,7 @@ export default function Home() {
                 className="aspect-square w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:aspect-[4/3]"
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="bg-paper px-7 py-3 text-[13px] font-bold uppercase tracking-[0.3em] transition-colors group-hover:bg-ink group-hover:text-paper">
+                <span className="bg-paper px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.26em] transition-colors group-hover:bg-ink group-hover:text-paper">
                   Subscription
                 </span>
               </div>
@@ -130,7 +130,7 @@ export default function Home() {
               className="aspect-square w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:aspect-[4/3]"
             />
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="bg-paper px-7 py-3 text-[13px] font-bold uppercase tracking-[0.3em] transition-colors group-hover:bg-ink group-hover:text-paper">
+              <span className="bg-paper px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.26em] transition-colors group-hover:bg-ink group-hover:text-paper">
                 {c.label} ({c.count})
               </span>
             </div>
@@ -144,7 +144,7 @@ export default function Home() {
           Kyune Ritual
         </p>
         <p
-          className="reveal mx-auto mt-6 max-w-3xl text-2xl font-bold leading-[1.4] tracking-[-0.02em] sm:text-[36px]"
+          className="reveal mx-auto mt-6 max-w-2xl text-xl font-medium leading-[1.55] tracking-[-0.01em] sm:text-[26px]"
           data-d="1"
         >
           아침과 밤, 하루의 양 끝을 정돈하는 일.
@@ -154,7 +154,7 @@ export default function Home() {
 
       {/* Products */}
       <section className="px-4 py-14 sm:px-6 sm:py-16">
-        <h2 className="mb-7 text-[12px] font-bold uppercase tracking-[0.24em]">
+        <h2 className="mb-7 text-[11px] font-medium uppercase tracking-[0.24em] text-mist">
           New In
         </h2>
         <div className="grid grid-cols-2 gap-x-3 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">

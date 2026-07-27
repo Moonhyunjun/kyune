@@ -52,7 +52,7 @@ export default function SubscribePage() {
         Supplement Subscription
       </p>
       <h1
-        className="reveal mt-5 max-w-3xl text-3xl font-black leading-[1.15] tracking-[-0.02em] sm:text-[56px]"
+        className="reveal mt-6 max-w-2xl text-[26px] font-medium leading-[1.3] tracking-[-0.015em] sm:text-[38px]"
         data-d="1"
       >
         수백 개의 영양제 앞에서
@@ -85,7 +85,7 @@ export default function SubscribePage() {
 
       {/* FAQ */}
       <div className="mt-20 border-t border-line pt-12">
-        <h2 className="text-[11px] font-bold uppercase tracking-[0.24em]">
+        <h2 className="text-[11px] font-medium uppercase tracking-[0.24em] text-mist">
           FAQ
         </h2>
         <div className="mt-6 border-b border-line">
