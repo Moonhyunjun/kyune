@@ -8,7 +8,7 @@
   --color-ink: #141412;
   --color-mist: #5f5a51; /* 텍스트 대비 AA(6.5:1 on paper) */
   --color-line: #dcd6c9;
-  --color-accent: #141412;
+  --color-accent: #c2255c; /* 레퍼런스 무드의 코랄 로즈 포인트 — 대비 5.1:1 */
 
   --font-sans: "Pretendard Variable", Pretendard, -apple-system,
     BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR",
