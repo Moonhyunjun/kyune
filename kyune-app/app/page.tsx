@@ -10,55 +10,35 @@ export default function Home() {
 
   return (
     <div>
-      {/* Campaign hero — two-tone pink + candy capsules (CSS only) */}
-      <Link href="/shop" className="group relative block overflow-hidden">
-        <div className="relative aspect-[16/11] w-full sm:aspect-[16/7]">
-          {/* two-tone backdrop */}
-          <div className="absolute inset-x-0 top-0 h-[62%] bg-[#f483ac]" />
-          <div className="absolute inset-x-0 bottom-0 h-[38%] bg-[#f9c1d6]" />
-
-          {/* floating capsules */}
-          {[
-            { top: "12%", left: "58%", w: 26, h: 64, r: "28deg", d: "0s" },
-            { top: "34%", left: "72%", w: 20, h: 50, r: "-18deg", d: "0.8s" },
-            { top: "58%", left: "63%", w: 22, h: 56, r: "40deg", d: "1.6s" },
-            { top: "20%", left: "84%", w: 18, h: 44, r: "12deg", d: "2.2s" },
-            { top: "55%", left: "88%", w: 24, h: 60, r: "-32deg", d: "0.4s" },
-            { top: "70%", left: "76%", w: 16, h: 40, r: "20deg", d: "1.2s" },
-          ].map((c, i) => (
-            <span
-              key={i}
-              className="capsule absolute hidden overflow-hidden rounded-full shadow-[0_14px_24px_rgba(168,25,77,0.28)] sm:block"
-              style={{
-                top: c.top,
-                left: c.left,
-                width: c.w,
-                height: c.h,
-                ["--r" as string]: c.r,
-                ["--d" as string]: c.d,
-              }}
-            >
-              <span className="block h-1/2 w-full bg-[#fbe7bb]" />
-              <span className="block h-1/2 w-full bg-[#f0bd53]" />
-            </span>
-          ))}
-
-          {/* copy */}
-          <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-12">
-            <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-ink/70">
-              Kyune® Morning &amp; Night Rituals
-            </p>
-            <h1 className="mt-4 max-w-xl text-4xl font-black leading-[1.2] tracking-[-0.02em] text-ink sm:text-6xl sm:leading-[1.15]">
-              하루의 양 끝을
-              <br />
-              정돈하는 리추얼
-            </h1>
-            <span className="mt-8 inline-block w-fit rounded-full bg-paper px-7 py-3 text-[13px] font-bold uppercase tracking-[0.26em] text-ink transition-colors group-hover:bg-ink group-hover:text-paper">
-              Shop Ritual 01
-            </span>
-          </div>
+      {/* Hero — type-led, clinical editorial */}
+      <section className="border-b border-line px-4 pb-16 pt-20 sm:px-6 sm:pb-24 sm:pt-32">
+        <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-mist">
+          Kyune® — Morning &amp; Night Rituals, Seoul
+        </p>
+        <h1 className="mt-6 max-w-5xl text-[44px] font-black leading-[1.08] tracking-[-0.03em] sm:text-[88px] sm:leading-[1.02]">
+          하루의 양 끝을
+          <br />
+          정돈하는 리추얼.
+        </h1>
+        <p className="mt-8 max-w-md text-[15px] leading-8 text-mist">
+          알약케이스와, 그 안을 매달 채우는 영양제 구독.
+          모든 습관에 정해진 자리를 만듭니다.
+        </p>
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Link
+            href="/shop"
+            className="bg-ink px-9 py-4 text-[12px] font-bold uppercase tracking-[0.22em] text-paper transition-opacity hover:opacity-85"
+          >
+            Shop All
+          </Link>
+          <Link
+            href="/subscribe"
+            className="border border-ink px-9 py-4 text-[12px] font-bold uppercase tracking-[0.22em] transition-colors hover:bg-ink hover:text-paper"
+          >
+            Subscribe
+          </Link>
         </div>
-      </Link>
+      </section>
 
       {/* Signature — 주력: 알약케이스 + 구독 */}
       <section className="px-4 py-14 sm:px-6 sm:py-16">
@@ -75,10 +55,10 @@ export default function Home() {
               <img
                 src="/products/pill-organizer.jpg"
                 alt="필 오거나이저"
-                className="aspect-square w-full rounded-2xl object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:aspect-[4/3]"
+                className="aspect-square w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:aspect-[4/3]"
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="rounded-full bg-paper px-7 py-3 text-[13px] font-bold uppercase tracking-[0.3em] transition-colors group-hover:bg-ink group-hover:text-paper">
+                <span className="bg-paper px-7 py-3 text-[13px] font-bold uppercase tracking-[0.3em] transition-colors group-hover:bg-ink group-hover:text-paper">
                   Pill Organizer
                 </span>
               </div>
@@ -100,10 +80,10 @@ export default function Home() {
               <img
                 src="/products/supplement-tower.jpg"
                 alt="영양제 구독"
-                className="aspect-square w-full rounded-2xl object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:aspect-[4/3]"
+                className="aspect-square w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:aspect-[4/3]"
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="rounded-full bg-paper px-7 py-3 text-[13px] font-bold uppercase tracking-[0.3em] transition-colors group-hover:bg-ink group-hover:text-paper">
+                <span className="bg-paper px-7 py-3 text-[13px] font-bold uppercase tracking-[0.3em] transition-colors group-hover:bg-ink group-hover:text-paper">
                   Subscription
                 </span>
               </div>
@@ -147,10 +127,10 @@ export default function Home() {
             <img
               src={c.image}
               alt={c.alt}
-              className="aspect-square w-full rounded-2xl object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:aspect-[4/3]"
+              className="aspect-square w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:aspect-[4/3]"
             />
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="rounded-full bg-paper px-7 py-3 text-[13px] font-bold uppercase tracking-[0.3em] transition-colors group-hover:bg-ink group-hover:text-paper">
+              <span className="bg-paper px-7 py-3 text-[13px] font-bold uppercase tracking-[0.3em] transition-colors group-hover:bg-ink group-hover:text-paper">
                 {c.label} ({c.count})
               </span>
             </div>
@@ -164,7 +144,7 @@ export default function Home() {
           Kyune Ritual
         </p>
         <p
-          className="reveal mx-auto mt-6 max-w-2xl font-serif text-2xl leading-relaxed sm:text-[32px] sm:leading-[1.6]"
+          className="reveal mx-auto mt-6 max-w-3xl text-2xl font-bold leading-[1.4] tracking-[-0.02em] sm:text-[36px]"
           data-d="1"
         >
           아침과 밤, 하루의 양 끝을 정돈하는 일.

@@ -42,7 +42,7 @@ export default function AddToCart({ slug }: { slug: string }) {
             setAdded(true);
             setTimeout(() => setAdded(false), 2000);
           }}
-          className="flex-1 rounded-full border border-ink py-4 text-[13px] tracking-[0.14em] transition-colors hover:bg-white"
+          className="flex-1 border border-ink py-4 text-[13px] tracking-[0.14em] transition-colors hover:bg-white"
         >
           {added ? "장바구니에 담았습니다" : "장바구니 담기"}
         </button>
@@ -52,7 +52,7 @@ export default function AddToCart({ slug }: { slug: string }) {
             add(slug, quantity);
             router.push("/checkout");
           }}
-          className="flex-1 rounded-full bg-ink py-4 text-[13px] tracking-[0.14em] text-paper transition-opacity hover:opacity-85"
+          className="flex-1 bg-ink py-4 text-[13px] tracking-[0.14em] text-paper transition-opacity hover:opacity-85"
         >
           바로 구매하기
         </button>

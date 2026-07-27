@@ -10,7 +10,7 @@ export default function ProductCard({
 }) {
   return (
     <Link href={`/shop/${product.slug}`} className="group block">
-      <div className="relative overflow-hidden rounded-xl bg-cream">
+      <div className="relative overflow-hidden bg-cream">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={product.image}
