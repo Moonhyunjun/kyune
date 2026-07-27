@@ -52,7 +52,7 @@ export default function SubscribePage() {
         Supplement Subscription
       </p>
       <h1
-        className="reveal mt-5 max-w-2xl font-serif text-3xl leading-relaxed sm:text-[40px] sm:leading-[1.45]"
+        className="reveal mt-5 max-w-3xl text-3xl font-black leading-[1.15] tracking-[-0.02em] sm:text-[56px]"
         data-d="1"
       >
         수백 개의 영양제 앞에서

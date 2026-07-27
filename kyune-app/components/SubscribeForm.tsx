@@ -108,7 +108,7 @@ export default function SubscribeForm() {
             type="button"
             onClick={() => setSelected(p.id)}
             aria-pressed={selected === p.id}
-            className={`reveal flex flex-col rounded-2xl border p-6 text-left transition-colors ${
+            className={`reveal flex flex-col border p-6 text-left transition-colors ${
               selected === p.id
                 ? "border-ink bg-cream/60"
                 : "border-line hover:border-mist"
@@ -148,7 +148,7 @@ export default function SubscribeForm() {
             onChange={(e) => setName(e.target.value)}
             placeholder="이름"
             autoComplete="name"
-            className="w-full rounded-full border border-line bg-white/60 px-5 py-3 text-[14px] outline-none transition-colors placeholder:text-mist focus:border-ink"
+            className="w-full border border-line bg-white/60 px-5 py-3 text-[14px] outline-none transition-colors placeholder:text-mist focus:border-ink"
           />
           <input
             type="email"
@@ -156,12 +156,12 @@ export default function SubscribeForm() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="이메일"
             autoComplete="email"
-            className="w-full rounded-full border border-line bg-white/60 px-5 py-3 text-[14px] outline-none transition-colors placeholder:text-mist focus:border-ink"
+            className="w-full border border-line bg-white/60 px-5 py-3 text-[14px] outline-none transition-colors placeholder:text-mist focus:border-ink"
           />
         </div>
         <button
           type="submit"
-          className="mt-6 w-full rounded-full bg-ink py-4 text-[13px] tracking-[0.14em] text-paper transition-opacity hover:opacity-85"
+          className="mt-6 w-full bg-ink py-4 text-[13px] tracking-[0.14em] text-paper transition-opacity hover:opacity-85"
         >
           {plans.find((p) => p.id === selected)?.name} 구독 신청하기
         </button>
