@@ -21,6 +21,20 @@ export default function Header() {
   const pathname = usePathname();
   const { totalCount, ready } = useCart();
   const [loggedIn, setLoggedIn] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // 홈에서는 헤더가 히어로 인물컷 위에 투명하게 얹히고,
+  // 스크롤이 내려가면 종이색 배경으로 전환된다.
+  const isHome = pathname === "/";
+  const overHero = isHome && !scrolled;
+
+  useEffect(() => {
+    if (!isHome) return;
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
 
   useEffect(() => {
     if (!isSupabaseConfigured) return;
@@ -40,14 +54,32 @@ export default function Header() {
     ? { href: "/account", label: "MY" }
     : { href: "/login", label: "LOGIN" };
 
+  const linkBase =
+    "whitespace-nowrap text-[12px] font-medium uppercase tracking-[0.16em] transition-colors sm:text-[13px]";
+  const linkColor = overHero
+    ? "text-white/85 hover:text-white"
+    : "text-ink/70 hover:text-accent";
+
   return (
-    <header className="border-b border-line bg-paper">
+    <header
+      className={
+        isHome
+          ? `fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
+              overHero
+                ? "border-b border-transparent bg-transparent"
+                : "border-b border-line bg-paper"
+            }`
+          : "border-b border-line bg-paper"
+      }
+    >
 
       {/* big logotype */}
       <div className="flex justify-center px-6 pb-2 pt-8 sm:pb-3 sm:pt-10">
         <Link
           href="/"
-          className="text-xl font-semibold uppercase tracking-[0.5em] sm:text-2xl"
+          className={`text-xl font-semibold uppercase tracking-[0.5em] transition-colors sm:text-2xl ${
+            overHero ? "text-white" : "text-ink"
+          }`}
           style={{ marginRight: "-0.5em" }}
         >
           KYUNE
@@ -55,30 +87,37 @@ export default function Header() {
       </div>
 
       {/* nav */}
-      <nav className="sticky top-0 z-40 flex items-center justify-center gap-5 overflow-x-auto px-6 py-3 sm:gap-9">
+      <nav
+        className={`flex items-center gap-5 overflow-x-auto px-6 py-3 [justify-content:safe_center] sm:gap-9 ${
+          isHome ? "" : "sticky top-0 z-40"
+        }`}
+      >
         {nav.map((item) => (
           <Link
             key={item.label}
             href={item.href}
-            className={`whitespace-nowrap text-[12px] font-medium uppercase tracking-[0.16em] transition-colors sm:text-[13px] ${
+            className={`${linkBase} ${
               pathname === item.href.split("?")[0] && item.label === "SHOP"
-                ? "text-ink"
-                : "text-ink/70 hover:text-accent"
+                ? overHero
+                  ? "text-white"
+                  : "text-ink"
+                : linkColor
             }`}
           >
             {item.label}
           </Link>
         ))}
-        <span className="hidden h-3 w-px bg-line sm:block" />
-        <Link
-          href={authItem.href}
-          className="whitespace-nowrap text-[12px] font-medium uppercase tracking-[0.16em] text-ink/70 transition-colors hover:text-accent sm:text-[13px]"
-        >
+        <span
+          className={`hidden h-3 w-px sm:block ${
+            overHero ? "bg-white/40" : "bg-line"
+          }`}
+        />
+        <Link href={authItem.href} className={`${linkBase} ${linkColor}`}>
           {authItem.label}
         </Link>
         <Link
           href="/cart"
-          className="whitespace-nowrap text-[12px] font-medium uppercase tracking-[0.16em] text-accent sm:text-[13px]"
+          className={`${linkBase} ${overHero ? "text-white" : "text-accent"}`}
           aria-label="장바구니"
         >
           CART{ready && totalCount > 0 ? ` (${totalCount})` : ""}

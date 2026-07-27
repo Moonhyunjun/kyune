@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { products, formatKRW, getProduct } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
-import SubscribeCta from "@/components/SubscribeCta";
 
 export default function Home() {
   const morningCount = products.filter((p) => p.category === "morning").length;
@@ -10,33 +9,39 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero — type-led, clinical editorial */}
-      <section className="border-b border-line px-4 pb-16 pt-20 sm:px-6 sm:pb-24 sm:pt-32">
-        <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-mist">
-          Kyune® — Morning &amp; Night Rituals, Seoul
-        </p>
-        <h1 className="mt-7 max-w-3xl text-[30px] font-medium leading-[1.25] tracking-[-0.015em] sm:text-[50px] sm:leading-[1.18]">
-          하루의 양 끝을
-          <br />
-          정돈하는 리추얼.
-        </h1>
-        <p className="mt-8 max-w-md text-[15px] leading-8 text-mist">
-          알약케이스와, 그 안을 매달 채우는 영양제 구독.
-          모든 습관에 정해진 자리를 만듭니다.
-        </p>
-        <div className="mt-10 flex flex-wrap gap-3">
-          <Link
-            href="/shop"
-            className="bg-ink px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.2em] text-paper transition-opacity hover:opacity-85"
-          >
-            Shop All
-          </Link>
-          <Link
-            href="/subscribe"
-            className="border border-ink px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.2em] transition-colors hover:bg-ink hover:text-paper"
-          >
-            Subscribe
-          </Link>
+      {/* Hero — 풀블리드 인물컷, 투명 헤더 뒤까지 화면 전체를 채운다 */}
+      <section className="relative h-svh min-h-[540px] overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/refs/portrait-hero.jpg"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-ink/10 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-ink/45 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 px-4 pb-12 sm:px-6 sm:pb-16">
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-white/80">
+            Kyune® — Morning &amp; Night Rituals, Seoul
+          </p>
+          <h1 className="mt-5 max-w-3xl text-[30px] font-medium leading-[1.25] tracking-[-0.015em] text-white sm:text-[48px] sm:leading-[1.16]">
+            하루의 양 끝을
+            <br />
+            정돈하는 리추얼.
+          </h1>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/shop"
+              className="bg-white px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.2em] text-ink transition-opacity hover:opacity-85"
+            >
+              Shop All
+            </Link>
+            <Link
+              href="/subscribe"
+              className="border border-white px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.2em] text-white transition-colors hover:bg-white hover:text-ink"
+            >
+              Subscribe
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -46,10 +51,7 @@ export default function Home() {
           Signature
         </h2>
         <div className="grid gap-x-4 gap-y-10 sm:grid-cols-2">
-          <Link
-            href="/shop/pill-organizer"
-            className="group block"
-          >
+          <Link href="/shop/pill-organizer" className="group block">
             <div className="relative overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -138,18 +140,26 @@ export default function Home() {
         ))}
       </section>
 
-      {/* Ritual statement */}
-      <section className="border-y border-line bg-cream/60 px-6 py-20 text-center sm:py-28">
-        <p className="reveal font-mono text-[11px] uppercase tracking-[0.32em] text-mist">
-          Kyune Ritual
-        </p>
-        <p
-          className="reveal mx-auto mt-6 max-w-2xl text-xl font-medium leading-[1.55] tracking-[-0.01em] sm:text-[26px]"
-          data-d="1"
-        >
-          아침과 밤, 하루의 양 끝을 정돈하는 일.
-          <br /> 웰니스는 거기서 시작됩니다.
-        </p>
+      {/* Ritual statement — 풀블리드 인물컷 밴드 */}
+      <section className="relative mt-14 overflow-hidden sm:mt-16">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/refs/portrait-band.jpg"
+          alt=""
+          className="h-[52vh] min-h-[380px] w-full object-cover"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-ink/35 px-6 text-center">
+          <p className="reveal font-mono text-[11px] uppercase tracking-[0.32em] text-white/75">
+            Kyune Ritual
+          </p>
+          <p
+            className="reveal mx-auto mt-6 max-w-2xl text-xl font-medium leading-[1.55] tracking-[-0.01em] text-white sm:text-[26px]"
+            data-d="1"
+          >
+            아침과 밤, 하루의 양 끝을 정돈하는 일.
+            <br /> 웰니스는 거기서 시작됩니다.
+          </p>
+        </div>
       </section>
 
       {/* Products */}
@@ -166,8 +176,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Subscription */}
-      <SubscribeCta />
+      {/* Subscription — 인물컷 + 카피 스플릿 */}
+      <section className="grid sm:grid-cols-2">
+        <div className="relative min-h-[320px] overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/refs/portrait-square.jpg"
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
+        <div className="flex flex-col justify-center bg-ink px-6 py-20 sm:px-12 sm:py-28">
+          <p className="reveal font-mono text-[10px] uppercase tracking-[0.32em] text-paper/50">
+            Supplement Subscription
+          </p>
+          <p
+            className="reveal mt-6 max-w-md text-xl font-medium leading-[1.55] tracking-[-0.01em] text-paper sm:text-[26px]"
+            data-d="1"
+          >
+            오브제는 한 번,
+            <br />그 안은 매달 새롭게.
+          </p>
+          <p
+            className="reveal mt-6 max-w-md text-[14px] leading-8 text-paper/75"
+            data-d="2"
+          >
+            KYUNE이 성분과 브랜드를 검증해 셀렉한 영양제가 매달 리추얼에 맞춰
+            도착합니다. 월 59,000원부터, 1·3·6·12개월 플랜.
+          </p>
+          <Link
+            href="/subscribe"
+            className="reveal mt-10 inline-block w-fit bg-paper px-7 py-3 text-[11px] font-medium uppercase tracking-[0.26em] text-ink transition-colors hover:bg-cream"
+            data-d="3"
+          >
+            Subscribe
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }
