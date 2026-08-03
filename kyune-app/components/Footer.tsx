@@ -48,6 +48,17 @@ export default function Footer() {
 
       <div className="border-t border-line">
         <div className="mx-auto max-w-6xl px-6 py-5 text-[11px] leading-5 text-mist">
+          <p className="mb-3 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-ink/70">
+            <a href="/terms" className="hover:text-accent">
+              이용약관
+            </a>
+            <a href="/privacy" className="font-medium hover:text-accent">
+              개인정보처리방침
+            </a>
+            <a href="/refund" className="hover:text-accent">
+              환불 및 청약철회
+            </a>
+          </p>
           <p>
             큐네(KYUNE) · 대표: 문현준, 조경환 · 사업자등록번호: 596-73-00640 ·
             통신판매업신고: 제2026-서울강남-04145호
