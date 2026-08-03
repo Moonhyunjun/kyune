@@ -50,11 +50,11 @@ export default function Footer() {
         <div className="mx-auto max-w-6xl px-6 py-5 text-[11px] leading-5 text-mist">
           <p>
             큐네(KYUNE) · 대표: 문현준, 조경환 · 사업자등록번호: 596-73-00640 ·
-            통신판매업신고: [제0000-지역-0000호]
+            통신판매업신고: 제2026-서울강남-04145호
           </p>
           <p>
-            주소: 서울특별시 강남구 선릉로 704, 12층 1246-3호(청담동) · 문의:
-            info@kyune.kr · © {new Date().getFullYear()} KYUNE. All rights
+            주소: 서울특별시 강남구 선릉로 704, 12층 1246-3호 청담빌딩(청담동) ·
+            문의: info@kyune.kr · © {new Date().getFullYear()} KYUNE. All rights
             reserved.
           </p>
         </div>
