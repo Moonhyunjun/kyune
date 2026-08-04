@@ -24,6 +24,12 @@ export default function ContactPage() {
           </a>
         </div>
         <div className="flex">
+          <span className="w-28 shrink-0 text-mist">Tel</span>
+          <a href="tel:07080578998" className="hover:underline">
+            070-8057-8998
+          </a>
+        </div>
+        <div className="flex">
           <span className="w-28 shrink-0 text-mist">Instagram</span>
           <a
             href="https://instagram.com"

@@ -65,8 +65,15 @@ export default function Footer() {
           </p>
           <p>
             주소: 서울특별시 강남구 선릉로 704, 12층 1246-3호 청담빌딩(청담동) ·
-            문의: info@kyune.kr · © {new Date().getFullYear()} KYUNE. All rights
-            reserved.
+            전화:{" "}
+            <a href="tel:07080578998" className="hover:text-accent">
+              070-8057-8998
+            </a>{" "}
+            · 문의:{" "}
+            <a href="mailto:info@kyune.kr" className="hover:text-accent">
+              info@kyune.kr
+            </a>{" "}
+            · © {new Date().getFullYear()} KYUNE. All rights reserved.
           </p>
         </div>
       </div>

@@ -260,6 +260,16 @@ export default function RefundPage() {
             [
               "고객센터",
               <a
+                key="tel"
+                href="tel:07080578998"
+                className="underline underline-offset-4"
+              >
+                070-8057-8998
+              </a>,
+            ],
+            [
+              "이메일",
+              <a
                 key="email"
                 href="mailto:info@kyune.kr"
                 className="underline underline-offset-4"
