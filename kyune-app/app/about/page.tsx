@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SUPPLEMENTS_ENABLED } from "@/lib/flags";
 
 export const metadata: Metadata = {
   title: "About",
@@ -42,9 +43,9 @@ export default function AboutPage() {
         data-d="2"
       >
         <p>
-          KYUNE은 웰니스 습관에 정해진 자리를 만듭니다. 영양제 한 알, 자기 전의
-          폰, 한 자루의 향 — 매일 반복되는 것들이 제자리를 가질 때, 하루는
-          다스려집니다.
+          KYUNE은 웰니스 습관에 정해진 자리를 만듭니다.
+          {SUPPLEMENTS_ENABLED ? " 영양제 한 알, 자기 전의 폰, 한 자루의 향" : " 자기 전의 폰, 한 자루의 향, 머리맡의 물 한 잔"}
+          {" "}— 매일 반복되는 것들이 제자리를 가질 때, 하루는 다스려집니다.
         </p>
         <p>
           질서는 가장 조용한 회복이라고 믿습니다. 서울의 공방에서 금속판을

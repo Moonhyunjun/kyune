@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { useCart } from "@/lib/cart";
 import { formatKRW } from "@/lib/products";
 import SuccessUpsell from "@/components/SuccessUpsell";
+import { SUPPLEMENTS_ENABLED } from "@/lib/flags";
 
 interface ConfirmedPayment {
   orderId: string;
@@ -151,7 +152,7 @@ function SuccessInner() {
         </Link>
       </div>
 
-      <SuccessUpsell />
+      {SUPPLEMENTS_ENABLED && <SuccessUpsell />}
     </div>
   );
 }

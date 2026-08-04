@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { SUPPLEMENTS_ENABLED } from "@/lib/flags";
 
 /**
  * 구독 사전신청 저장.
@@ -8,6 +9,11 @@ import { createClient } from "@supabase/supabase-js";
  * 클라이언트는 localStorage 폴백으로 신청을 보존한다.
  */
 export async function POST(request: Request) {
+  // 구독 서비스 미운영 기간에는 접수 자체를 받지 않는다.
+  if (!SUPPLEMENTS_ENABLED) {
+    return NextResponse.json({ message: "Not found." }, { status: 404 });
+  }
+
   let body: { plan?: string; name?: string; email?: string };
   try {
     body = await request.json();

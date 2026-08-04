@@ -4,6 +4,7 @@ import LegalPage, {
   Clauses,
   InfoTable,
 } from "@/components/LegalPage";
+import { SUPPLEMENTS_ENABLED } from "@/lib/flags";
 
 export const metadata: Metadata = {
   title: "개인정보처리방침",
@@ -42,10 +43,14 @@ export default function PrivacyPage() {
                 "주문 및 결제",
                 "주문자 성명, 연락처, 이메일 주소(선택), 주문 내역, 결제 금액, 결제 승인 정보",
               ],
-              [
-                "구독 사전신청",
-                "성명, 이메일 주소, 선택한 구독 플랜",
-              ],
+              ...(SUPPLEMENTS_ENABLED
+                ? ([
+                    [
+                      "구독 사전신청",
+                      "성명, 이메일 주소, 선택한 구독 플랜",
+                    ],
+                  ] as [string, React.ReactNode][])
+                : []),
               [
                 "자동 수집",
                 "접속 IP 주소, 브라우저 및 기기 정보, 접속 일시, 서비스 이용 기록, 쿠키",
@@ -60,9 +65,9 @@ export default function PrivacyPage() {
         </p>
         <p>
           회사는 사상·신념, 건강 및 성생활에 관한 정보 등 민감정보를 수집하지
-          않습니다. 다만 구독 서비스 신청 시 이용자가 자발적으로 제공하는 설문
-          응답에 건강 관련 정보가 포함될 수 있으며, 이 경우 회사는 사전에 별도의
-          동의를 받고 해당 목적으로만 이용합니다.
+          않습니다.
+          {SUPPLEMENTS_ENABLED &&
+            " 다만 구독 서비스 신청 시 이용자가 자발적으로 제공하는 설문 응답에 건강 관련 정보가 포함될 수 있으며, 이 경우 회사는 사전에 별도의 동의를 받고 해당 목적으로만 이용합니다."}
         </p>
       </Article>
 
@@ -75,7 +80,7 @@ export default function PrivacyPage() {
             </>,
             <>
               재화 및 서비스 제공 — 주문 접수와 처리, 상품 배송, 대금 결제 및
-              정산, 구독 서비스의 정기 결제와 배송
+              정산{SUPPLEMENTS_ENABLED && ", 구독 서비스의 정기 결제와 배송"}
             </>,
             <>
               고객 응대 — 문의사항 및 불만 처리, 분쟁 조정을 위한 기록 보존,
