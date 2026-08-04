@@ -292,6 +292,16 @@ export default function PrivacyPage() {
             rows={[
               ["개인정보 보호책임자", "문현준 (대표)"],
               [
+              "전화",
+                <a
+                  key="tel"
+                  href="tel:07080578998"
+                  className="underline underline-offset-4"
+                >
+                  070-8057-8998
+                </a>,
+              ],
+              [
                 "연락처",
                 <a
                   key="email"

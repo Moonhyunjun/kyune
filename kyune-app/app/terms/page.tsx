@@ -403,6 +403,16 @@ export default function TermsPage() {
               "서울특별시 강남구 선릉로 704, 12층 1246-3호 청담빌딩(청담동)",
             ],
             [
+              "전화",
+              <a
+                key="tel"
+                href="tel:07080578998"
+                className="underline underline-offset-4"
+              >
+                070-8057-8998
+              </a>,
+            ],
+            [
               "문의",
               <a
                 key="email"
