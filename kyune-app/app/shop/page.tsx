@@ -8,11 +8,16 @@ export const metadata: Metadata = {
   description: "아침과 밤의 리추얼을 담는 KYUNE 오브제 전체 제품.",
 };
 
-const categories: { key: Category | "all"; label: string }[] = [
+const allCategories: { key: Category | "all"; label: string }[] = [
   { key: "all", label: "ALL" },
   { key: "morning", label: "MORNING" },
   { key: "night", label: "NIGHT" },
 ];
+
+/** 상품이 하나도 없는 카테고리 탭은 노출하지 않는다. */
+const categories = allCategories.filter(
+  (c) => c.key === "all" || products.some((p) => p.category === c.key)
+);
 
 export default async function ShopPage({
   searchParams,
@@ -41,8 +46,11 @@ export default async function ShopPage({
         </span>
       </div>
 
+      {/* 실제 카테고리가 하나뿐이면 필터 자체가 무의미하므로 감춘다. */}
       <div
-        className="reveal mt-8 flex gap-7 border-b border-line pb-4"
+        className={`reveal mt-8 flex gap-7 border-b border-line pb-4 ${
+          categories.length > 2 ? "" : "hidden"
+        }`}
         data-d="1"
       >
         {categories.map((c) => (

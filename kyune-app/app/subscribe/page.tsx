@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import SubscribeForm from "@/components/SubscribeForm";
+import { SUPPLEMENTS_ENABLED } from "@/lib/flags";
 
 export const metadata: Metadata = {
   title: "영양제 구독",
@@ -45,6 +47,9 @@ const faqs = [
 ];
 
 export default function SubscribePage() {
+  // 건강기능식품판매업 신고 전까지 구독 서비스는 노출하지 않는다.
+  if (!SUPPLEMENTS_ENABLED) notFound();
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
       {/* Intro — 인물컷 스플릿 */}

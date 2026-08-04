@@ -1,3 +1,5 @@
+import { SUPPLEMENTS_ENABLED } from "./flags";
+
 export type Category = "morning" | "night";
 
 export interface Product {
@@ -13,6 +15,8 @@ export interface Product {
   weight: string;
   leadTime: string;
   image: string;
+  /** 영양제·알약 관련 상품. 건강기능식품판매업 신고 전까지 노출하지 않는다. */
+  supplement?: boolean;
 }
 
 /**
@@ -21,7 +25,7 @@ export interface Product {
  * material은 실제 생산 스펙 확정 시(스틸→알루미늄 검토 중) 여기만 수정하면 됨.
  * 이미지는 public/products/ 아래. 권장: 1:1, 최소 1200×1200px.
  */
-export const products: Product[] = [
+const allProducts: Product[] = [
   {
     slug: "daily-dose-stand",
     name: "Daily Dose Stand",
@@ -36,6 +40,7 @@ export const products: Product[] = [
     weight: "0.6 kg",
     leadTime: "주문 후 약 7일 소요",
     image: "/products/daily-dose-stand.jpg",
+    supplement: true,
   },
   {
     slug: "pill-organizer",
@@ -51,6 +56,7 @@ export const products: Product[] = [
     weight: "0.4 kg",
     leadTime: "주문 후 약 7일 소요",
     image: "/products/pill-organizer.jpg",
+    supplement: true,
   },
   {
     slug: "supplement-tower",
@@ -66,6 +72,7 @@ export const products: Product[] = [
     weight: "1.8 kg",
     leadTime: "주문 후 약 14일 소요",
     image: "/products/supplement-tower.jpg",
+    supplement: true,
   },
   {
     slug: "morning-dose-tray",
@@ -80,6 +87,7 @@ export const products: Product[] = [
     weight: "0.9 kg",
     leadTime: "주문 후 약 7일 소요",
     image: "/products/morning-dose-tray.jpg",
+    supplement: true,
   },
   {
     slug: "bedtime-box",
@@ -142,6 +150,14 @@ export const products: Product[] = [
   },
 ];
 
+/** 사이트에 노출되는 상품. 심사 기간 동안 영양제·알약 관련 상품은 제외된다. */
+export const products: Product[] = SUPPLEMENTS_ENABLED
+  ? allProducts
+  : allProducts.filter((p) => !p.supplement);
+
+export { allProducts };
+
+/** 노출 중인 상품만 조회한다. 숨겨진 상품의 상세 페이지는 404가 된다. */
 export function getProduct(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
 }

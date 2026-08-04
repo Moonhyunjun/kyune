@@ -4,16 +4,27 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/lib/cart";
+import { products } from "@/lib/products";
+import { SUPPLEMENTS_ENABLED } from "@/lib/flags";
 import { getSupabaseBrowser, isSupabaseConfigured } from "@/lib/supabase/client";
 
+/** 상품이 없는 컬렉션과 미운영 서비스는 메뉴에서 제외한다. */
 const nav = [
   { href: "/shop", label: "SHOP" },
-  { href: "/shop?category=morning", label: "MORNING" },
-  { href: "/shop?category=night", label: "NIGHT" },
-  { href: "/subscribe", label: "SUBSCRIBE" },
+  { href: "/shop?category=morning", label: "MORNING", category: "morning" },
+  { href: "/shop?category=night", label: "NIGHT", category: "night" },
+  { href: "/subscribe", label: "SUBSCRIBE", requiresSupplements: true },
   { href: "/about", label: "ABOUT" },
   { href: "/contact", label: "CONTACT" },
-];
+].filter((item) => {
+  if (item.requiresSupplements && !SUPPLEMENTS_ENABLED) return false;
+  if (item.category) {
+    // 남은 컬렉션이 하나뿐이면 SHOP과 결과가 같으므로 메뉴에서 뺀다.
+    const live = new Set(products.map((p) => p.category));
+    return live.size > 1 && live.has(item.category as (typeof products)[number]["category"]);
+  }
+  return true;
+});
 
 
 
