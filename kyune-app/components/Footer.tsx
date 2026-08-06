@@ -1,12 +1,12 @@
+import Logo from "@/components/Logo";
+
 export default function Footer() {
   return (
     <footer className="border-t border-line">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-14 sm:flex-row sm:justify-between">
         <div>
-          <p className="text-[13px] font-bold uppercase tracking-[0.3em]">
-            Kyune
-          </p>
-          <p className="mt-3 max-w-xs text-[12px] leading-6 text-mist">
+          <Logo className="h-6 w-auto text-ink" />
+          <p className="mt-4 max-w-xs text-[12px] leading-6 text-mist">
             하루를 정돈하는 리추얼 오브제. 아침과 밤, 모든 습관에 자리를
             만듭니다.
           </p>
@@ -40,10 +40,8 @@ export default function Footer() {
       </div>
 
       {/* giant logotype — fashion-brand footer staple */}
-      <div className="overflow-hidden px-2" aria-hidden>
-        <p className="select-none text-center text-[21vw] font-bold uppercase leading-[0.95] tracking-[0.02em] text-ink/[0.06]">
-          KYUNE
-        </p>
+      <div className="flex justify-center overflow-hidden px-2 pb-2" aria-hidden>
+        <Logo className="w-[88vw] max-w-6xl text-ink/[0.06]" />
       </div>
 
       <div className="border-t border-line">
