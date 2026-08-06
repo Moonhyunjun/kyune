@@ -92,7 +92,7 @@ export default function Header() {
           aria-label="KYUNE 홈"
           className={`transition-colors ${overHero ? "text-white" : "text-ink"}`}
         >
-          <Logo className="h-8 w-auto sm:h-10" />
+          <Logo className="h-6 w-auto sm:h-7" />
         </Link>
       </div>
 
