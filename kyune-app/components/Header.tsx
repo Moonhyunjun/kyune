@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useCart } from "@/lib/cart";
 import { products } from "@/lib/products";
 import { SUPPLEMENTS_ENABLED } from "@/lib/flags";
+import Logo from "@/components/Logo";
 import { getSupabaseBrowser, isSupabaseConfigured } from "@/lib/supabase/client";
 
 /** 상품이 없는 컬렉션과 미운영 서비스는 메뉴에서 제외한다. */
@@ -84,16 +85,14 @@ export default function Header() {
       }
     >
 
-      {/* big logotype */}
-      <div className="flex justify-center px-6 pb-2 pt-8 sm:pb-3 sm:pt-10">
+      {/* big logotype — 손글씨 워드마크 (components/Logo.tsx) */}
+      <div className="flex justify-center px-6 pb-2 pt-7 sm:pb-3 sm:pt-9">
         <Link
           href="/"
-          className={`text-xl font-semibold uppercase tracking-[0.5em] transition-colors sm:text-2xl ${
-            overHero ? "text-white" : "text-ink"
-          }`}
-          style={{ marginRight: "-0.5em" }}
+          aria-label="KYUNE 홈"
+          className={`transition-colors ${overHero ? "text-white" : "text-ink"}`}
         >
-          KYUNE
+          <Logo className="h-8 w-auto sm:h-10" />
         </Link>
       </div>
 
