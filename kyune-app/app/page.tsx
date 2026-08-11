@@ -225,7 +225,7 @@ export default function Home() {
         <h2 className="mb-7 text-[11px] font-medium uppercase tracking-[0.24em] text-mist">
           New In
         </h2>
-        <div className="grid grid-cols-2 gap-x-3 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-16 sm:grid-cols-3 sm:gap-x-10 lg:grid-cols-4 lg:gap-y-20">
           {products.map((p, i) => (
             <div key={p.slug} className="reveal" data-d={String(i % 4)}>
               <ProductCard product={p} />
