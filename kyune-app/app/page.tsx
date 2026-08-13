@@ -275,27 +275,43 @@ export default function Home() {
           ) : (
             <>
               <p className="reveal font-mono text-[10px] uppercase tracking-[0.32em] text-paper/50">
-                Made in Seoul
+                Kyune — Living Wellness
               </p>
               <p
-                className="reveal mt-6 max-w-md text-xl font-medium leading-[1.55] tracking-[-0.01em] text-paper sm:text-[26px]"
+                className="reveal mt-6 max-w-md text-[15px] leading-8 text-paper/75"
                 data-d="1"
               >
-                한 점씩,
+                KYUNE는 리빙 웰니스 브랜드입니다.
                 <br />
-                직각으로 접어서.
+                <br />
+                매일 쓰는 웰니스 소품을 스틸로 만들어요.
+                <br />
+                합리적인 가격에, 좀 다른 물건을 제안합니다.
               </p>
               <p
-                className="reveal mt-6 max-w-md text-[14px] leading-8 text-paper/75"
+                className="reveal mt-10 max-w-md text-xl font-medium leading-[1.55] tracking-[-0.01em] text-paper sm:text-[26px]"
                 data-d="2"
               >
-                서울의 공방에서 금속판을 절곡해 아침과 밤의 양 끝에 놓일 물건을
-                만듭니다. 질서는 가장 조용한 회복이라고 믿습니다.
+                당연한 시간을
+                <br />
+                다시 보게 만드는 물건.
+              </p>
+              <p
+                className="reveal mt-6 max-w-md text-[15px] leading-8 text-paper/75"
+                data-d="3"
+              >
+                약 먹는 시간, 향 피우는 시간, 잠드는 시간.
+                <br />
+                누구나 있는 시간인데 아무도 신경 안 쓰는 시간.
+                <br />
+                거기에 놓일 물건을 고민하고,
+                <br />
+                스틸을 접어서 만들어요.
               </p>
               <Link
                 href="/about"
                 className="reveal mt-10 inline-block w-fit bg-paper px-7 py-3 text-[11px] font-medium uppercase tracking-[0.26em] text-ink transition-colors hover:bg-cream"
-                data-d="3"
+                data-d="4"
               >
                 About
               </Link>

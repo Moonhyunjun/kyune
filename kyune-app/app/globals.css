@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  /* KYUNE design tokens — warm linen wellness (flat editorial 구조는 유지) */
-  --color-paper: #f5f3ee;
-  --color-cream: #eae6dc;
-  --color-sand: #ddd6c8;
-  --color-ink: #141412;
-  --color-mist: #5f5a51; /* 텍스트 대비 AA(6.5:1 on paper) */
-  --color-line: #dcd6c9;
-  --color-accent: #c2255c; /* 레퍼런스 무드의 코랄 로즈 포인트 — 대비 5.1:1 */
+  /* KYUNE design tokens — 순백 갤러리. 제품 컷이 배경 위에 떠 보이도록
+     페이지 전체를 흰색으로 두고, 면 구분은 아주 옅은 중립 회색으로만 한다. */
+  --color-paper: #ffffff;
+  --color-cream: #f4f4f3; /* 스테이트먼트 밴드 등 옅은 면 */
+  --color-sand: #e9e9e7;
+  --color-ink: #141412; /* 흰 배경 대비 18.4:1 */
+  --color-mist: #5f5f5f; /* 흰 배경 대비 6.4:1 (AA) */
+  --color-line: #e6e6e4; /* 구분선 */
+  --color-accent: #c2255c; /* 코랄 로즈 포인트 — 흰 배경 대비 5.7:1 (AA) */
 
   --font-sans: "Pretendard Variable", Pretendard, -apple-system,
     BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR",
