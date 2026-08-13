@@ -17,6 +17,12 @@ export interface Product {
   image: string;
   /** 영양제·알약 관련 상품. 건강기능식품판매업 신고 전까지 노출하지 않는다. */
   supplement?: boolean;
+  /**
+   * 주문제작 상품. 사이즈·마감을 협의해 개별 생산하므로 즉시 구매 대신
+   * 문의를 받는다. price가 0이면 가격도 문의로 표시된다.
+   * 청약철회 제한 고지가 상세 페이지에 함께 노출된다.
+   */
+  madeToOrder?: boolean;
 }
 
 /**
@@ -147,6 +153,38 @@ const allProducts: Product[] = [
     weight: "0.3 kg",
     leadTime: "재고 보유 시 2일 내 출고",
     image: "/products/incense-holder.jpg",
+  },
+  {
+    slug: "daily-shape-seat",
+    name: "Daily Shape Seat",
+    nameKo: "데일리 셰이프 시트",
+    category: "night",
+    price: 0,
+    description:
+      "면과 면이 직각으로 만나 등받이가 됩니다. 앉는 자리와 기대는 자리, 두 개의 면으로 충분합니다.",
+    material: "스틸 (분체도장)",
+    size: "주문 시 협의",
+    finish: "무광 블랙 파우더코팅",
+    weight: "사이즈에 따라 상이",
+    leadTime: "협의 후 약 3~4주 소요",
+    image: "/products/daily-shape-seat.jpg",
+    madeToOrder: true,
+  },
+  {
+    slug: "daily-shape-table",
+    name: "Daily Shape Table",
+    nameKo: "데일리 셰이프 테이블",
+    category: "night",
+    price: 0,
+    description:
+      "하나의 판을 접어 상판과 다리를 만듭니다. 옆에 두면 사이드 테이블, 앞에 두면 스툴이 됩니다.",
+    material: "스틸 (분체도장)",
+    size: "주문 시 협의",
+    finish: "무광 블랙 파우더코팅",
+    weight: "사이즈에 따라 상이",
+    leadTime: "협의 후 약 3~4주 소요",
+    image: "/products/daily-shape-table.jpg",
+    madeToOrder: true,
   },
 ];
 
