@@ -6,6 +6,9 @@ import ProductCard from "@/components/ProductCard";
 export default function Home() {
   const morningCount = products.filter((p) => p.category === "morning").length;
   const nightCount = products.filter((p) => p.category === "night").length;
+  const furnitureCount = products.filter(
+    (p) => p.category === "furniture"
+  ).length;
 
   // Signature 타일 — 구독 운영 시에는 알약케이스 + 구독, 그 외에는 대표 오브제 2점.
   const signature = SUPPLEMENTS_ENABLED
@@ -41,6 +44,13 @@ export default function Home() {
       count: nightCount,
       image: "/products/wind-down-station.jpg",
       alt: "KYUNE Night Ritual",
+    },
+    {
+      href: "/shop?category=furniture",
+      label: "Furniture",
+      count: furnitureCount,
+      image: "/products/daily-shape-table.jpg",
+      alt: "KYUNE Furniture",
     },
   ].filter((c) => c.count > 0);
 

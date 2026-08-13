@@ -39,7 +39,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as CartItem[];
-        setItems(parsed.filter((i) => getProduct(i.slug) && i.quantity > 0));
+        // 주문제작 상품은 문의로만 진행되므로 장바구니에 남아 있으면 제거한다.
+        setItems(
+          parsed.filter((i) => {
+            const p = getProduct(i.slug);
+            return Boolean(p) && !p!.madeToOrder && i.quantity > 0;
+          })
+        );
       }
     } catch {
       /* ignore corrupted storage */

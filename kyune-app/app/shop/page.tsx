@@ -12,6 +12,7 @@ const allCategories: { key: Category | "all"; label: string }[] = [
   { key: "all", label: "ALL" },
   { key: "morning", label: "MORNING" },
   { key: "night", label: "NIGHT" },
+  { key: "furniture", label: "FURNITURE" },
 ];
 
 /** 상품이 하나도 없는 카테고리 탭은 노출하지 않는다. */
@@ -26,7 +27,9 @@ export default async function ShopPage({
 }) {
   const { category } = await searchParams;
   const active =
-    category === "morning" || category === "night" ? category : "all";
+    category === "morning" || category === "night" || category === "furniture"
+      ? category
+      : "all";
   const list =
     active === "all" ? products : products.filter((p) => p.category === active);
 

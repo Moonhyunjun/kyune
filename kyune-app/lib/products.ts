@@ -1,6 +1,6 @@
 import { SUPPLEMENTS_ENABLED } from "./flags";
 
-export type Category = "morning" | "night";
+export type Category = "morning" | "night" | "furniture";
 
 export interface Product {
   slug: string;
@@ -158,7 +158,7 @@ const allProducts: Product[] = [
     slug: "daily-shape-seat",
     name: "Daily Shape Seat",
     nameKo: "데일리 셰이프 시트",
-    category: "night",
+    category: "furniture",
     price: 0,
     description:
       "면과 면이 직각으로 만나 등받이가 됩니다. 앉는 자리와 기대는 자리, 두 개의 면으로 충분합니다.",
@@ -174,7 +174,7 @@ const allProducts: Product[] = [
     slug: "daily-shape-table",
     name: "Daily Shape Table",
     nameKo: "데일리 셰이프 테이블",
-    category: "night",
+    category: "furniture",
     price: 0,
     description:
       "하나의 판을 접어 상판과 다리를 만듭니다. 옆에 두면 사이드 테이블, 앞에 두면 스툴이 됩니다.",
