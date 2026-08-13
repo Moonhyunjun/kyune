@@ -55,12 +55,12 @@ export default async function ProductPage({
 
       <div className="mt-10 grid gap-14 lg:grid-cols-2 lg:gap-20">
         <div className="reveal self-start lg:sticky lg:top-24" data-d="1">
-          <div className="overflow-hidden border border-line bg-cream">
+          <div className="flex aspect-square items-center justify-center overflow-hidden bg-white">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={product.image}
               alt={product.nameKo}
-              className="aspect-square w-full object-cover"
+              className="max-h-[86%] max-w-[86%] object-contain"
             />
           </div>
         </div>
@@ -70,7 +70,9 @@ export default async function ProductPage({
             {product.name}
           </h1>
           <p className="mt-1 text-[14px] text-mist">{product.nameKo}</p>
-          <p className="mt-6 font-mono text-lg">{formatKRW(product.price)}</p>
+          <p className="mt-6 font-mono text-lg">
+            {product.madeToOrder ? "가격 문의" : formatKRW(product.price)}
+          </p>
 
           <p className="mt-8 max-w-md text-[14px] leading-8 text-ink/80">
             {product.description}
@@ -90,7 +92,31 @@ export default async function ProductPage({
             ))}
           </dl>
 
-          <AddToCart slug={product.slug} />
+          {product.madeToOrder ? (
+            <div className="mt-10">
+              <p className="max-w-md text-[13px] leading-7 text-mist">
+                사이즈와 마감을 협의해 개별 제작하는 상품입니다. 사용하실 공간과
+                원하시는 치수를 알려주시면 견적과 일정을 안내드립니다.
+              </p>
+              <Link
+                href="/contact"
+                className="mt-6 inline-block w-full bg-ink py-4 text-center text-[13px] tracking-[0.14em] text-paper transition-opacity hover:opacity-85 sm:w-auto sm:px-12"
+              >
+                제작 문의하기
+              </Link>
+              <p className="mt-4 max-w-md text-[12px] leading-6 text-mist">
+                주문제작 상품은 제작이 시작된 이후 단순 변심에 의한 청약철회가
+                제한될 수 있습니다. 제작 착수 전 상세 내용을 안내드리고 동의를
+                받은 뒤 진행합니다. 자세한 내용은{" "}
+                <Link href="/refund" className="underline underline-offset-4">
+                  환불 및 청약철회 규정
+                </Link>
+                을 참고해주세요.
+              </p>
+            </div>
+          ) : (
+            <AddToCart slug={product.slug} />
+          )}
 
           <p className="mt-8 text-[12px] leading-6 text-mist">
             관리법 — 부드러운 마른 천으로 닦아주세요. 물기가 닿은 경우 바로

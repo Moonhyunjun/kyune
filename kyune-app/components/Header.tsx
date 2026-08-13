@@ -14,6 +14,11 @@ const nav = [
   { href: "/shop", label: "SHOP" },
   { href: "/shop?category=morning", label: "MORNING", category: "morning" },
   { href: "/shop?category=night", label: "NIGHT", category: "night" },
+  {
+    href: "/shop?category=furniture",
+    label: "FURNITURE",
+    category: "furniture",
+  },
   { href: "/subscribe", label: "SUBSCRIBE", requiresSupplements: true },
   { href: "/about", label: "ABOUT" },
   { href: "/contact", label: "CONTACT" },

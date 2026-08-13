@@ -27,7 +27,7 @@ export default function ProductCard({
           {product.nameKo}
         </p>
         <p className="mt-1 font-mono text-[13px] text-ink/70">
-          {formatKRW(product.price)}
+          {product.madeToOrder ? "주문 제작" : formatKRW(product.price)}
         </p>
       </div>
     </Link>
