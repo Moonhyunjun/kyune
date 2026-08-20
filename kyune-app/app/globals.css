@@ -11,9 +11,10 @@
   --color-line: #e6e6e4; /* 구분선 */
   --color-accent: #c2255c; /* 코랄 로즈 포인트 — 흰 배경 대비 5.7:1 (AA) */
 
-  --font-sans: "Pretendard Variable", Pretendard, -apple-system,
-    BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR",
-    sans-serif;
+  /* 라틴은 Helvetica Neue, 한글은 Pretendard로 이어받는다. */
+  --font-sans: "Helvetica Neue", Helvetica, "Pretendard Variable", Pretendard,
+    Arial, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Noto Sans KR", sans-serif;
   --font-serif: "Cormorant Garamond", "Noto Serif KR", "Times New Roman",
     serif;
   --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
@@ -28,6 +29,7 @@ body {
   background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  font-weight: 500; /* Helvetica Neue Medium */
   letter-spacing: -0.01em;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;

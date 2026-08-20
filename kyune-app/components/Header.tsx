@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -27,12 +27,46 @@ const nav = [
   if (item.category) {
     // 남은 컬렉션이 하나뿐이면 SHOP과 결과가 같으므로 메뉴에서 뺀다.
     const live = new Set(products.map((p) => p.category));
-    return live.size > 1 && live.has(item.category as (typeof products)[number]["category"]);
+    return (
+      live.size > 1 &&
+      live.has(item.category as (typeof products)[number]["category"])
+    );
   }
   return true;
 });
 
+function AccountIcon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <circle cx="12" cy="8" r="3.6" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M4.8 20c0-3.6 3.2-5.8 7.2-5.8s7.2 2.2 7.2 5.8"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
 
+function BagIcon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M5.5 7.5h13l-1 12.5h-11l-1-12.5Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 9.5V6.6a3 3 0 0 1 6 0v2.9"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
 
 export default function Header() {
   const pathname = usePathname();
@@ -40,8 +74,8 @@ export default function Header() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // 홈에서는 헤더가 히어로 인물컷 위에 투명하게 얹히고,
-  // 스크롤이 내려가면 종이색 배경으로 전환된다.
+  // 홈에서는 헤더가 히어로 위에 투명하게 얹히고,
+  // 스크롤이 내려가면 흰 배경으로 전환된다.
   const isHome = pathname === "/";
   const overHero = isHome && !scrolled;
 
@@ -67,12 +101,11 @@ export default function Header() {
     return () => subscription.unsubscribe();
   }, []);
 
-  const authItem = loggedIn
-    ? { href: "/account", label: "MY" }
-    : { href: "/login", label: "LOGIN" };
+  const accountHref = loggedIn ? "/account" : "/login";
+  const accountLabel = loggedIn ? "마이페이지" : "로그인";
 
   const linkBase =
-    "whitespace-nowrap text-[12px] font-medium uppercase tracking-[0.16em] transition-colors sm:text-[13px]";
+    "whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.14em] transition-colors";
   const linkColor = overHero
     ? "text-white/85 hover:text-white"
     : "text-ink/70 hover:text-accent";
@@ -89,54 +122,78 @@ export default function Header() {
           : "border-b border-line bg-paper"
       }
     >
+      {/* 좌: 메뉴 · 중앙: 로고 · 우: 계정/장바구니 */}
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-5 py-4 sm:px-8 sm:py-5">
+        {/* 좌측 메뉴 — 모바일에서는 아래 줄로 내린다 */}
+        <nav className="hidden items-center gap-6 sm:flex lg:gap-8">
+          {nav.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className={`${linkBase} ${
+                pathname === item.href.split("?")[0] && item.label === "SHOP"
+                  ? overHero
+                    ? "text-white"
+                    : "text-ink"
+                  : linkColor
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        <span className="sm:hidden" />
 
-      {/* big logotype — 손글씨 워드마크 (components/Logo.tsx) */}
-      <div className="flex justify-center px-6 pb-2 pt-7 sm:pb-3 sm:pt-9">
+        {/* 중앙 로고 */}
         <Link
           href="/"
           aria-label="KYUNE 홈"
-          className={`transition-colors ${overHero ? "text-white" : "text-ink"}`}
+          className={`justify-self-center transition-colors ${
+            overHero ? "text-white" : "text-ink"
+          }`}
         >
           <Logo className="h-6 w-auto sm:h-7" />
         </Link>
+
+        {/* 우측 계정 · 장바구니 */}
+        <div
+          className={`flex items-center justify-end gap-5 ${
+            overHero ? "text-white" : "text-ink"
+          }`}
+        >
+          <Link
+            href={accountHref}
+            aria-label={accountLabel}
+            className="transition-opacity hover:opacity-60"
+          >
+            <AccountIcon />
+          </Link>
+          <Link
+            href="/cart"
+            aria-label="장바구니"
+            className="flex items-center gap-1.5 transition-opacity hover:opacity-60"
+          >
+            <BagIcon />
+            {ready && totalCount > 0 && (
+              <span className="font-mono text-[11px] leading-none">
+                {totalCount}
+              </span>
+            )}
+          </Link>
+        </div>
       </div>
 
-      {/* nav */}
-      <nav
-        className={`flex items-center gap-5 overflow-x-auto px-6 py-3 [justify-content:safe_center] sm:gap-9 ${
-          isHome ? "" : "sticky top-0 z-40"
-        }`}
-      >
+      {/* 모바일 메뉴 — 좌측 정렬, 가로 스크롤 */}
+      <nav className="flex items-center gap-5 overflow-x-auto px-5 pb-3 sm:hidden">
         {nav.map((item) => (
           <Link
             key={item.label}
             href={item.href}
-            className={`${linkBase} ${
-              pathname === item.href.split("?")[0] && item.label === "SHOP"
-                ? overHero
-                  ? "text-white"
-                  : "text-ink"
-                : linkColor
-            }`}
+            className={`${linkBase} ${linkColor}`}
           >
             {item.label}
           </Link>
         ))}
-        <span
-          className={`hidden h-3 w-px sm:block ${
-            overHero ? "bg-white/40" : "bg-line"
-          }`}
-        />
-        <Link href={authItem.href} className={`${linkBase} ${linkColor}`}>
-          {authItem.label}
-        </Link>
-        <Link
-          href="/cart"
-          className={`${linkBase} ${overHero ? "text-white" : "text-accent"}`}
-          aria-label="장바구니"
-        >
-          CART{ready && totalCount > 0 ? ` (${totalCount})` : ""}
-        </Link>
       </nav>
     </header>
   );
