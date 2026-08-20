@@ -107,8 +107,8 @@ export default function Header() {
   const linkBase =
     "whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.14em] transition-colors";
   const linkColor = overHero
-    ? "text-white/85 hover:text-white"
-    : "text-ink/70 hover:text-accent";
+    ? "text-white hover:text-white"
+    : "text-ink hover:text-accent";
 
   return (
     <header

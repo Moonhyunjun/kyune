@@ -108,7 +108,7 @@ export default function Home() {
                     필 오거나이저 — 일주일의 질서를 접어 넣은 케이스
                   </p>
                   {pillOrganizer && (
-                    <p className="shrink-0 font-mono text-[13px] text-ink/80">
+                    <p className="shrink-0 font-mono text-[13px] text-ink">
                       {formatKRW(pillOrganizer.price)}
                     </p>
                   )}
@@ -132,7 +132,7 @@ export default function Home() {
                   <p className="text-[14px] leading-7">
                     영양제 구독 — 매달 셀렉해 채워드리는 리추얼
                   </p>
-                  <p className="shrink-0 font-mono text-[13px] text-ink/80">
+                  <p className="shrink-0 font-mono text-[13px] text-ink">
                     월 59,000원~
                   </p>
                 </div>
@@ -162,7 +162,7 @@ export default function Home() {
                   <p className="text-[14px] leading-7">
                     {p.nameKo} — {p.description.split(".")[0]}
                   </p>
-                  <p className="shrink-0 font-mono text-[13px] text-ink/80">
+                  <p className="shrink-0 font-mono text-[13px] text-ink">
                     {formatKRW(p.price)}
                   </p>
                 </div>
@@ -206,7 +206,7 @@ export default function Home() {
           className="h-[52vh] min-h-[380px] w-full object-cover"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-ink/35 px-6 text-center">
-          <p className="reveal font-mono text-[11px] uppercase tracking-[0.32em] text-white/75">
+          <p className="reveal font-mono text-[11px] uppercase tracking-[0.32em] text-white">
             Kyune Ritual
           </p>
           <p
@@ -246,7 +246,7 @@ export default function Home() {
         <div className="flex flex-col justify-center bg-ink px-6 py-20 sm:px-12 sm:py-28">
           {SUPPLEMENTS_ENABLED ? (
             <>
-              <p className="reveal font-mono text-[10px] uppercase tracking-[0.32em] text-paper/50">
+              <p className="reveal font-mono text-[10px] uppercase tracking-[0.32em] text-paper">
                 Supplement Subscription
               </p>
               <p
@@ -257,7 +257,7 @@ export default function Home() {
                 <br />그 안은 매달 새롭게.
               </p>
               <p
-                className="reveal mt-6 max-w-md text-[14px] leading-8 text-paper/75"
+                className="reveal mt-6 max-w-md text-[14px] leading-8 text-paper"
                 data-d="2"
               >
                 KYUNE이 성분과 브랜드를 검증해 셀렉한 영양제가 매달 리추얼에
@@ -273,11 +273,11 @@ export default function Home() {
             </>
           ) : (
             <>
-              <p className="reveal font-mono text-[10px] uppercase tracking-[0.32em] text-paper/50">
+              <p className="reveal font-mono text-[10px] uppercase tracking-[0.32em] text-paper">
                 Kyune — Living Wellness
               </p>
               <p
-                className="reveal mt-6 max-w-md text-[15px] leading-8 text-paper/75"
+                className="reveal mt-6 max-w-md text-[15px] leading-8 text-paper"
                 data-d="1"
               >
                 KYUNE는 리빙 웰니스 브랜드입니다.
@@ -296,7 +296,7 @@ export default function Home() {
                 다시 보게 만드는 물건.
               </p>
               <p
-                className="reveal mt-6 max-w-md text-[15px] leading-8 text-paper/75"
+                className="reveal mt-6 max-w-md text-[15px] leading-8 text-paper"
                 data-d="3"
               >
                 약 먹는 시간, 향 피우는 시간, 잠드는 시간.
