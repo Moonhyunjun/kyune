@@ -125,7 +125,7 @@ export default function Header() {
       {/* 좌: 메뉴 · 중앙: 로고 · 우: 계정/장바구니 */}
       <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-5 py-4 sm:px-8 sm:py-5">
         {/* 좌측 메뉴 — 모바일에서는 아래 줄로 내린다 */}
-        <nav className="hidden items-center gap-6 sm:flex lg:gap-8">
+        <nav className="hidden items-center gap-4 sm:flex lg:gap-5">
           {nav.map((item) => (
             <Link
               key={item.label}
@@ -184,7 +184,7 @@ export default function Header() {
       </div>
 
       {/* 모바일 메뉴 — 좌측 정렬, 가로 스크롤 */}
-      <nav className="flex items-center gap-5 overflow-x-auto px-5 pb-3 sm:hidden">
+      <nav className="flex items-center gap-4 overflow-x-auto px-5 pb-3 sm:hidden">
         {nav.map((item) => (
           <Link
             key={item.label}
