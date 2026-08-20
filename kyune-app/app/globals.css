@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Helvetica Neue Medium — 자체 호스팅. 라틴 전용이라 한글은 Pretendard가 이어받는다. */
+@font-face {
+  font-family: "Helvetica Neue Web";
+  src: url("/fonts/HelveticaNeue-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   /* KYUNE design tokens — 순백 갤러리. 제품 컷이 배경 위에 떠 보이도록
      페이지 전체를 흰색으로 두고, 면 구분은 아주 옅은 중립 회색으로만 한다. */
@@ -12,9 +21,9 @@
   --color-accent: #c2255c; /* 코랄 로즈 포인트 — 흰 배경 대비 5.7:1 (AA) */
 
   /* 라틴은 Helvetica Neue, 한글은 Pretendard로 이어받는다. */
-  --font-sans: "Helvetica Neue", Helvetica, "Pretendard Variable", Pretendard,
-    Arial, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-    "Noto Sans KR", sans-serif;
+  --font-sans: "Helvetica Neue Web", "Helvetica Neue", Helvetica,
+    "Pretendard Variable", Pretendard, Arial, -apple-system,
+    BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
   --font-serif: "Cormorant Garamond", "Noto Serif KR", "Times New Roman",
     serif;
   --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
