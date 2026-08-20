@@ -66,29 +66,18 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-ink/10 to-transparent" />
         <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-ink/45 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 px-4 pb-12 sm:px-6 sm:pb-16">
-          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-white/80">
-            Kyune® — Morning &amp; Night Rituals, Seoul
-          </p>
-          <h1 className="mt-5 max-w-3xl text-[30px] font-medium leading-[1.25] tracking-[-0.015em] text-white sm:text-[48px] sm:leading-[1.16]">
-            하루의 양 끝을
-            <br />
-            정돈하는 리추얼.
+        {/* 좌측 하단 — 소개글과 SHOP 버튼 */}
+        <div className="absolute bottom-0 left-0 max-w-lg px-5 pb-12 sm:px-8 sm:pb-16">
+          <h1 className="max-w-md text-[15px] font-medium leading-8 text-white sm:text-[16px] sm:leading-9">
+            KYUNE는 리빙 웰니스 브랜드입니다. 매일 쓰는 웰니스 소품을 스틸로
+            만들어요. 합리적인 가격에, 좀 다른 물건을 제안합니다.
           </h1>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/shop"
-              className="bg-white px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.2em] text-ink transition-opacity hover:opacity-85"
-            >
-              Shop All
-            </Link>
-            <Link
-              href={SUPPLEMENTS_ENABLED ? "/subscribe" : "/about"}
-              className="border border-white px-8 py-3.5 text-[11px] font-medium uppercase tracking-[0.2em] text-white transition-colors hover:bg-white hover:text-ink"
-            >
-              {SUPPLEMENTS_ENABLED ? "Subscribe" : "About"}
-            </Link>
-          </div>
+          <Link
+            href="/shop"
+            className="mt-7 inline-block rounded-full bg-white px-9 py-3.5 text-[12px] font-medium uppercase tracking-[0.18em] text-ink transition-opacity hover:opacity-85"
+          >
+            Shop
+          </Link>
         </div>
       </section>
 
