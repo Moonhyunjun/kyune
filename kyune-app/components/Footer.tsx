@@ -14,7 +14,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-x-16 gap-y-2 text-[11px] font-medium uppercase leading-7 tracking-[0.14em] text-ink/70">
+        <div className="grid grid-cols-2 gap-x-16 gap-y-2 text-[11px] font-medium uppercase leading-7 tracking-[0.14em] text-ink">
           <a href="/shop" className="hover:text-accent">
             Shop
           </a>
@@ -48,7 +48,7 @@ export default function Footer() {
 
       <div className="border-t border-line">
         <div className="mx-auto max-w-6xl px-6 py-5 text-[11px] leading-5 text-mist">
-          <p className="mb-3 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-ink/70">
+          <p className="mb-3 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-ink">
             <a href="/terms" className="hover:text-accent">
               이용약관
             </a>

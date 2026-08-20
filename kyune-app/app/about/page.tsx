@@ -39,7 +39,7 @@ export default function AboutPage() {
       </p>
 
       <div
-        className="reveal mt-12 space-y-7 text-[15px] leading-9 text-ink/85"
+        className="reveal mt-12 space-y-7 text-[15px] leading-9 text-ink"
         data-d="2"
       >
         <p>
@@ -62,7 +62,7 @@ export default function AboutPage() {
             <h2 className="mt-3 text-[13px] font-bold uppercase tracking-[0.14em]">
               {b.title}
             </h2>
-            <p className="mt-3 text-[13px] leading-7 text-ink/80">{b.body}</p>
+            <p className="mt-3 text-[13px] leading-7 text-ink">{b.body}</p>
           </div>
         ))}
       </div>

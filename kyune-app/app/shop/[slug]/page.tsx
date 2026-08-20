@@ -48,7 +48,7 @@ export default async function ProductPage({
           SHOP
         </Link>
         <span>/</span>
-        <span className="text-ink/70">
+        <span className="text-ink">
           {String(index + 1).padStart(2, "0")} — {product.name.toUpperCase()}
         </span>
       </nav>
@@ -74,7 +74,7 @@ export default async function ProductPage({
             {product.madeToOrder ? "가격 문의" : formatKRW(product.price)}
           </p>
 
-          <p className="mt-8 max-w-md text-[14px] leading-8 text-ink/80">
+          <p className="mt-8 max-w-md text-[14px] leading-8 text-ink">
             {product.description}
           </p>
 

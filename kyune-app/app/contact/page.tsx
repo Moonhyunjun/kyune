@@ -10,7 +10,7 @@ export default function ContactPage() {
     <div className="mx-auto max-w-3xl px-6 py-24">
       <h1 className="text-[13px] tracking-[0.2em] text-mist">CONTACT</h1>
 
-      <p className="mt-12 text-[15px] leading-9 text-ink/85">
+      <p className="mt-12 text-[15px] leading-9 text-ink">
         맞춤 제작, 도매, 협업 문의를 환영합니다.
         <br />
         아래 메일로 남겨주시면 영업일 기준 2일 내 회신드립니다.

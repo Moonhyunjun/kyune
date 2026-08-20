@@ -26,7 +26,7 @@ export default function ProductCard({
         <p className="text-[13px] leading-6 transition-colors group-hover:text-accent">
           {product.nameKo}
         </p>
-        <p className="mt-1 font-mono text-[13px] text-ink/70">
+        <p className="mt-1 font-mono text-[13px] text-ink">
           {product.madeToOrder ? "주문 제작" : formatKRW(product.price)}
         </p>
       </div>

@@ -148,7 +148,7 @@ export default function SubscribeForm() {
             onChange={(e) => setName(e.target.value)}
             placeholder="이름"
             autoComplete="name"
-            className="w-full border border-line bg-white/60 px-5 py-3 text-[14px] outline-none transition-colors placeholder:text-mist focus:border-ink"
+            className="w-full border border-line bg-white/60 px-5 py-3 text-[14px] outline-none transition-colors placeholder:text-hint focus:border-ink"
           />
           <input
             type="email"
@@ -156,7 +156,7 @@ export default function SubscribeForm() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="이메일"
             autoComplete="email"
-            className="w-full border border-line bg-white/60 px-5 py-3 text-[14px] outline-none transition-colors placeholder:text-mist focus:border-ink"
+            className="w-full border border-line bg-white/60 px-5 py-3 text-[14px] outline-none transition-colors placeholder:text-hint focus:border-ink"
           />
         </div>
         <button

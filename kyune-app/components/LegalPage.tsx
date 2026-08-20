@@ -44,7 +44,7 @@ export function Article({
   return (
     <section className="mb-11">
       <h2 className="text-[15px] font-medium leading-7">{title}</h2>
-      <div className="mt-3 space-y-3 text-[14px] leading-8 text-ink/85">
+      <div className="mt-3 space-y-3 text-[14px] leading-8 text-ink">
         {children}
       </div>
     </section>
