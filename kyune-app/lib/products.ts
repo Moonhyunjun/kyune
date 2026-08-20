@@ -155,6 +155,23 @@ const allProducts: Product[] = [
     image: "/products/incense-holder.jpg",
   },
   {
+    slug: "shell-pill-case",
+    name: "Shell Pill Case",
+    nameKo: "셸 필 케이스",
+    category: "morning",
+    price: 0,
+    description:
+      "조개의 성장선을 그대로 눌러 담았습니다. 뾰족한 염보가 힌지가 되고, 넓은 끝이 자석으로 맞물립니다. 손 안에서 열리는 감각까지 설계했습니다.",
+    material: "스테인리스 스틸 316",
+    size: "L120 × W65 × H18 mm",
+    finish: "헤어라인 브러시 · CNC 가공 + 프레스 엠보싱",
+    weight: "약 230 g",
+    leadTime: "한정 200점 · 주문 후 약 14일 소요",
+    image: "/products/shell-pill-case.jpg",
+    supplement: true,
+    madeToOrder: true,
+  },
+  {
     slug: "daily-shape-seat",
     name: "Daily Shape Seat",
     nameKo: "데일리 셰이프 시트",

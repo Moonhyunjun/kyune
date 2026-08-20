@@ -1,8 +1,10 @@
 import Logo from "@/components/Logo";
+import CustomerService from "@/components/CustomerService";
 
 export default function Footer() {
   return (
     <footer className="border-t border-line">
+      <CustomerService />
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-14 sm:flex-row sm:justify-between">
         <div>
           <Logo className="h-6 w-auto text-ink" />
