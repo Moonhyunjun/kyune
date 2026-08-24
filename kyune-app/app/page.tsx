@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { products, formatKRW, getProduct } from "@/lib/products";
+import { products } from "@/lib/products";
 import { SUPPLEMENTS_ENABLED } from "@/lib/flags";
 import ProductCard from "@/components/ProductCard";
 
@@ -9,14 +9,6 @@ export default function Home() {
   const furnitureCount = products.filter(
     (p) => p.category === "furniture"
   ).length;
-
-  // Signature 타일 — 구독 운영 시에는 알약케이스 + 구독, 그 외에는 대표 오브제 2점.
-  const signature = SUPPLEMENTS_ENABLED
-    ? []
-    : [getProduct("bedtime-box"), getProduct("incense-holder")].filter(
-        (p): p is NonNullable<typeof p> => Boolean(p)
-      );
-  const featured = getProduct("petal-pill-case");
 
   const bandImage = SUPPLEMENTS_ENABLED
     ? "/refs/portrait-band.jpg"
@@ -88,102 +80,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Signature — 주력 제품 */}
+      {/* New In — 상품 그리드를 맨 위로 */}
       <section className="px-4 py-14 sm:px-6 sm:py-16">
         <h2 className="mb-7 text-[11px] font-medium uppercase tracking-[0.24em] text-mist">
-          Signature
+          New In
         </h2>
-        <div className="grid gap-x-4 gap-y-10 sm:grid-cols-2">
-          {SUPPLEMENTS_ENABLED ? (
-            <>
-              {featured && (
-                <Link href={`/shop/${featured.slug}`} className="group block">
-                  <div className="relative overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={featured.image}
-                      alt={featured.nameKo}
-                      className="aspect-square w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:aspect-[4/3]"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="bg-paper px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.26em] transition-colors group-hover:bg-ink group-hover:text-paper">
-                        {featured.name}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="mt-3 flex items-baseline justify-between gap-3">
-                    <p className="text-[14px] leading-7">
-                      {featured.nameKo} — {featured.description.split(".")[0]}
-                    </p>
-                    <p className="shrink-0 font-mono text-[13px] text-ink">
-                      {featured.madeToOrder
-                        ? "주문 제작"
-                        : formatKRW(featured.price)}
-                    </p>
-                  </div>
-                </Link>
-              )}
-              <Link href="/subscribe" className="group block">
-                <div className="relative overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/products/supplement-tower.jpg"
-                    alt="영양제 구독"
-                    className="aspect-square w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:aspect-[4/3]"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="bg-paper px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.26em] transition-colors group-hover:bg-ink group-hover:text-paper">
-                      Subscription
-                    </span>
-                  </div>
-                </div>
-                <div className="mt-3 flex items-baseline justify-between gap-3">
-                  <p className="text-[14px] leading-7">
-                    영양제 구독 — 매달 셀렉해 채워드리는 리추얼
-                  </p>
-                  <p className="shrink-0 font-mono text-[13px] text-ink">
-                    월 59,000원~
-                  </p>
-                </div>
-              </Link>
-            </>
-          ) : (
-            signature.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/shop/${p.slug}`}
-                className="group block"
-              >
-                <div className="relative overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={p.image}
-                    alt={p.nameKo}
-                    className="aspect-square w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:aspect-[4/3]"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="bg-paper px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.26em] transition-colors group-hover:bg-ink group-hover:text-paper">
-                      {p.name}
-                    </span>
-                  </div>
-                </div>
-                <div className="mt-3 flex items-baseline justify-between gap-3">
-                  <p className="text-[14px] leading-7">
-                    {p.nameKo} — {p.description.split(".")[0]}
-                  </p>
-                  <p className="shrink-0 font-mono text-[13px] text-ink">
-                    {formatKRW(p.price)}
-                  </p>
-                </div>
-              </Link>
-            ))
-          )}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-16 sm:grid-cols-3 sm:gap-x-10 lg:grid-cols-4 lg:gap-y-20">
+          {products.map((p, i) => (
+            <div key={p.slug} className="reveal" data-d={String(i % 4)}>
+              <ProductCard product={p} />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Ritual statement — 풀블리드 인물컷 밴드 */}
+      <section className="relative overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={bandImage}
+          alt=""
+          className="h-[82vh] min-h-[560px] w-full object-cover"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-ink/35 px-6 text-center">
+          <p className="reveal font-mono text-[11px] uppercase tracking-[0.32em] text-white">
+            Kyune Ritual
+          </p>
+          <p
+            className="reveal mx-auto mt-6 max-w-2xl text-xl font-medium leading-[1.55] tracking-[-0.01em] text-white sm:text-[26px]"
+            data-d="1"
+          >
+            아침과 밤, 하루의 양 끝을 정돈하는 일.
+            <br /> 웰니스는 거기서 시작됩니다.
+          </p>
         </div>
       </section>
 
       {/* Morning / Night collections — 상품이 있는 컬렉션만 */}
       {collections.length > 1 && (
-        <section className="grid gap-3 px-4 sm:grid-cols-2 sm:gap-4 sm:px-6">
+        <section className="grid gap-3 px-4 pt-14 sm:grid-cols-2 sm:gap-4 sm:px-6 sm:pt-16">
           {collections.map((c) => (
             <Link
               key={c.label}
@@ -205,42 +140,6 @@ export default function Home() {
           ))}
         </section>
       )}
-
-      {/* Ritual statement — 풀블리드 인물컷 밴드 */}
-      <section className="relative mt-14 overflow-hidden sm:mt-16">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={bandImage}
-          alt=""
-          className="h-[52vh] min-h-[380px] w-full object-cover"
-        />
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-ink/35 px-6 text-center">
-          <p className="reveal font-mono text-[11px] uppercase tracking-[0.32em] text-white">
-            Kyune Ritual
-          </p>
-          <p
-            className="reveal mx-auto mt-6 max-w-2xl text-xl font-medium leading-[1.55] tracking-[-0.01em] text-white sm:text-[26px]"
-            data-d="1"
-          >
-            아침과 밤, 하루의 양 끝을 정돈하는 일.
-            <br /> 웰니스는 거기서 시작됩니다.
-          </p>
-        </div>
-      </section>
-
-      {/* Products */}
-      <section className="px-4 py-14 sm:px-6 sm:py-16">
-        <h2 className="mb-7 text-[11px] font-medium uppercase tracking-[0.24em] text-mist">
-          New In
-        </h2>
-        <div className="grid grid-cols-2 gap-x-6 gap-y-16 sm:grid-cols-3 sm:gap-x-10 lg:grid-cols-4 lg:gap-y-20">
-          {products.map((p, i) => (
-            <div key={p.slug} className="reveal" data-d={String(i % 4)}>
-              <ProductCard product={p} />
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* 하단 배너 — 인물컷 + 카피 스플릿 */}
       <section className="grid sm:grid-cols-2">
