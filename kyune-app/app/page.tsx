@@ -16,7 +16,7 @@ export default function Home() {
     : [getProduct("bedtime-box"), getProduct("incense-holder")].filter(
         (p): p is NonNullable<typeof p> => Boolean(p)
       );
-  const pillOrganizer = getProduct("pill-organizer");
+  const featured = getProduct("petal-pill-case");
 
   // 카드사 심사 기간에는 캡슐이 보이는 인물컷을 쓰지 않는다.
   // 상품을 내려도 히어로에 알약이 크게 보이면 심사 취지에 어긋난다.
@@ -35,7 +35,7 @@ export default function Home() {
       href: "/shop?category=morning",
       label: "Morning",
       count: morningCount,
-      image: "/products/pill-organizer.jpg",
+      image: "/products/petal-pill-case.jpg",
       alt: "KYUNE Morning Ritual",
     },
     {
@@ -89,31 +89,33 @@ export default function Home() {
         <div className="grid gap-x-4 gap-y-10 sm:grid-cols-2">
           {SUPPLEMENTS_ENABLED ? (
             <>
-              <Link href="/shop/pill-organizer" className="group block">
-                <div className="relative overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/products/pill-organizer.jpg"
-                    alt="필 오거나이저"
-                    className="aspect-square w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:aspect-[4/3]"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="bg-paper px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.26em] transition-colors group-hover:bg-ink group-hover:text-paper">
-                      Pill Organizer
-                    </span>
+              {featured && (
+                <Link href={`/shop/${featured.slug}`} className="group block">
+                  <div className="relative overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={featured.image}
+                      alt={featured.nameKo}
+                      className="aspect-square w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:aspect-[4/3]"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="bg-paper px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.26em] transition-colors group-hover:bg-ink group-hover:text-paper">
+                        {featured.name}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="mt-3 flex items-baseline justify-between gap-3">
-                  <p className="text-[14px] leading-7">
-                    필 오거나이저 — 일주일의 질서를 접어 넣은 케이스
-                  </p>
-                  {pillOrganizer && (
-                    <p className="shrink-0 font-mono text-[13px] text-ink">
-                      {formatKRW(pillOrganizer.price)}
+                  <div className="mt-3 flex items-baseline justify-between gap-3">
+                    <p className="text-[14px] leading-7">
+                      {featured.nameKo} — {featured.description.split(".")[0]}
                     </p>
-                  )}
-                </div>
-              </Link>
+                    <p className="shrink-0 font-mono text-[13px] text-ink">
+                      {featured.madeToOrder
+                        ? "주문 제작"
+                        : formatKRW(featured.price)}
+                    </p>
+                  </div>
+                </Link>
+              )}
               <Link href="/subscribe" className="group block">
                 <div className="relative overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}

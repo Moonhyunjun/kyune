@@ -33,22 +33,6 @@ export interface Product {
  */
 const allProducts: Product[] = [
   {
-    slug: "pill-organizer",
-    name: "Pill Organizer",
-    nameKo: "필 오거나이저",
-    category: "morning",
-    price: 76000,
-    description:
-      "일주일의 질서를 접어 넣은 케이스. 직각으로 여닫는 촉감이 의식의 일부가 됩니다.",
-    material: "스테인리스 스틸 304",
-    size: "W180 × D80 × H22 mm",
-    finish: "무광 비드블라스트",
-    weight: "0.4 kg",
-    leadTime: "주문 후 약 7일 소요",
-    image: "/products/pill-organizer.jpg",
-    supplement: true,
-  },
-  {
     slug: "incense-holder",
     name: "Incense Holder",
     nameKo: "인센스 홀더",
