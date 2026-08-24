@@ -25,24 +25,24 @@ export default function Home() {
     : "/refs/portrait-band.jpg";
   const bandImage = SUPPLEMENTS_ENABLED
     ? "/refs/portrait-band.jpg"
-    : "/products/wind-down-station.jpg";
+    : "/products/incense-holder.jpg";
   const bannerImage = SUPPLEMENTS_ENABLED
     ? "/refs/portrait-square.jpg"
-    : "/products/nightstand-dock.jpg";
+    : "/products/incense-holder.jpg";
 
   const collections = [
     {
       href: "/shop?category=morning",
       label: "Morning",
       count: morningCount,
-      image: "/products/morning-dose-tray.jpg",
+      image: "/products/pill-organizer.jpg",
       alt: "KYUNE Morning Ritual",
     },
     {
       href: "/shop?category=night",
       label: "Night",
       count: nightCount,
-      image: "/products/wind-down-station.jpg",
+      image: "/products/incense-holder.jpg",
       alt: "KYUNE Night Ritual",
     },
     {
