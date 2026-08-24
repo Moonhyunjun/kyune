@@ -18,11 +18,6 @@ export default function Home() {
       );
   const featured = getProduct("petal-pill-case");
 
-  // 카드사 심사 기간에는 캡슐이 보이는 인물컷을 쓰지 않는다.
-  // 상품을 내려도 히어로에 알약이 크게 보이면 심사 취지에 어긋난다.
-  const heroImage = SUPPLEMENTS_ENABLED
-    ? "/refs/portrait-hero.jpg"
-    : "/refs/portrait-band.jpg";
   const bandImage = SUPPLEMENTS_ENABLED
     ? "/refs/portrait-band.jpg"
     : "/products/incense-holder.jpg";
@@ -56,13 +51,25 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero — 풀블리드 인물컷, 투명 헤더 뒤까지 화면 전체를 채운다 */}
+      {/* Hero — 풀블리드 영상(갈매기·바다), 투명 헤더 뒤까지 화면 전체를 채운다 */}
       <section className="relative h-svh min-h-[540px] overflow-hidden">
+        <video
+          className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/hero/seagulls-poster.jpg"
+        >
+          <source src="/hero/seagulls.webm" type="video/webm" />
+          <source src="/hero/seagulls.mp4" type="video/mp4" />
+        </video>
+        {/* 모션 최소화 설정 시 정지 이미지로 대체 */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={heroImage}
+          src="/hero/seagulls-poster.jpg"
           alt=""
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 hidden h-full w-full object-cover motion-reduce:block"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-ink/10 to-transparent" />
         <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-ink/45 to-transparent" />
