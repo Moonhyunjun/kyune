@@ -11,4 +11,4 @@
  * 관련: lib/products.ts (supplement 플래그가 붙은 상품), app/subscribe,
  * components/SubscribeCta·SuccessUpsell, app/terms·refund·privacy
  */
-export const SUPPLEMENTS_ENABLED = false;
+export const SUPPLEMENTS_ENABLED = true;
