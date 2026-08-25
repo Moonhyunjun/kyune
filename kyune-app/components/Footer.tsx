@@ -19,7 +19,7 @@ export default function Footer() {
             Shop
           </a>
           <a
-            href="https://instagram.com"
+            href="https://instagram.com/kyune.seoul"
             target="_blank"
             rel="noreferrer"
             className="hover:text-accent"
