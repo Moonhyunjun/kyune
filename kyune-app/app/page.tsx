@@ -17,7 +17,7 @@ const menu = [
   { href: "/login", label: "ACCOUNT" },
 ];
 
-/** 하단 네비게이션 — TIKTOK·YOUTUBE 제외. */
+/** 하단 네비게이션 — TIKTOK·YOUTUBE 제외. 카카오톡 채널은 개설 전이라 제외. */
 const bottomNav: {
   href: string;
   label: string;
@@ -25,8 +25,11 @@ const bottomNav: {
 }[] = [
   { href: "/about", label: "INFO" },
   { href: "/contact", label: "CUSTOMER SERVICE" },
-  { href: "https://instagram.com", label: "INSTAGRAM", external: true },
-  { href: "https://pf.kakao.com", label: "KAKAOTALK", external: true },
+  {
+    href: "https://instagram.com/kyune.seoul",
+    label: "INSTAGRAM",
+    external: true,
+  },
 ];
 
 export default function Home() {
