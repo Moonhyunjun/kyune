@@ -1,231 +1,106 @@
 import Link from "next/link";
-import { products } from "@/lib/products";
-import { SUPPLEMENTS_ENABLED } from "@/lib/flags";
-import ProductCard from "@/components/ProductCard";
+import Logo from "@/components/Logo";
+
+/**
+ * 메인 = LLEGE 스타일 런처.
+ * 기존 KYUNE 영상 배경 위에 중앙 로고 + 세로 메뉴 버튼을 오버레이하고,
+ * 하단에 가로 네비게이션을 둔다. (레퍼런스: llege.co)
+ *
+ * LLEGE 원본 메뉴(ONLINE SHOP / LLEGE PLACE / ARCHIVE / CUSTOMER SERVICE /
+ * ACCOUNT) 구조를 그대로 따르되 KYUNE 콘텐츠에 맞춰 텍스트를 매핑한다.
+ */
+const menu = [
+  { href: "/shop", label: "ONLINE SHOP" },
+  { href: "/about", label: "ABOUT" },
+  { href: "/archive", label: "ARCHIVE" },
+  { href: "/contact", label: "CUSTOMER SERVICE" },
+  { href: "/login", label: "ACCOUNT" },
+];
+
+/** 하단 네비게이션 — TIKTOK·YOUTUBE 제외. */
+const bottomNav: {
+  href: string;
+  label: string;
+  external?: boolean;
+}[] = [
+  { href: "/about", label: "INFO" },
+  { href: "/contact", label: "CUSTOMER SERVICE" },
+  { href: "https://instagram.com", label: "INSTAGRAM", external: true },
+  { href: "https://pf.kakao.com", label: "KAKAOTALK", external: true },
+];
 
 export default function Home() {
-  const morningCount = products.filter((p) => p.category === "morning").length;
-  const nightCount = products.filter((p) => p.category === "night").length;
-  const furnitureCount = products.filter(
-    (p) => p.category === "furniture"
-  ).length;
-
-  const bandImage = SUPPLEMENTS_ENABLED
-    ? "/refs/portrait-band.jpg"
-    : "/products/incense-holder.jpg";
-  const bannerImage = SUPPLEMENTS_ENABLED
-    ? "/refs/portrait-square.jpg"
-    : "/products/incense-holder.jpg";
-
-  const collections = [
-    {
-      href: "/shop?category=morning",
-      label: "Morning",
-      count: morningCount,
-      image: "/products/petal-pill-case.jpg",
-      alt: "KYUNE Morning Ritual",
-    },
-    {
-      href: "/shop?category=night",
-      label: "Night",
-      count: nightCount,
-      image: "/products/incense-holder.jpg",
-      alt: "KYUNE Night Ritual",
-    },
-    {
-      href: "/shop?category=furniture",
-      label: "Furniture",
-      count: furnitureCount,
-      image: "/products/daily-shape-table.jpg",
-      alt: "KYUNE Furniture",
-    },
-  ].filter((c) => c.count > 0);
-
   return (
-    <div>
-      {/* Hero — 풀블리드 영상(갈매기·바다), 투명 헤더 뒤까지 화면 전체를 채운다 */}
-      <section className="relative h-svh min-h-[540px] overflow-hidden">
-        <video
-          className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/hero/seagulls-poster.jpg"
-        >
-          <source src="/hero/seagulls.webm" type="video/webm" />
-          <source src="/hero/seagulls.mp4" type="video/mp4" />
-        </video>
-        {/* 모션 최소화 설정 시 정지 이미지로 대체 */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/hero/seagulls-poster.jpg"
-          alt=""
-          className="absolute inset-0 hidden h-full w-full object-cover motion-reduce:block"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-ink/10 to-transparent" />
-        <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-ink/45 to-transparent" />
-        {/* 좌측 하단 — 소개글과 SHOP 버튼 */}
-        <div className="absolute bottom-0 left-0 max-w-lg px-5 pb-12 sm:px-8 sm:pb-16">
-          <h1 className="max-w-sm text-[13px] font-medium leading-7 text-white sm:text-[13.5px] sm:leading-[1.9]">
-            KYUNE는 리빙 웰니스 브랜드입니다. 매일 쓰는 웰니스 소품을 스틸로
-            만들어요. 합리적인 가격에, 좀 다른 물건을 제안합니다.
-          </h1>
-          <Link
-            href="/shop"
-            className="mt-6 inline-block rounded-full bg-white px-8 py-3 text-[10.5px] font-medium uppercase tracking-[0.18em] text-ink transition-opacity hover:opacity-85"
-          >
-            Shop
-          </Link>
-        </div>
-      </section>
+    <section className="relative flex min-h-svh flex-col overflow-hidden">
+      {/* 배경 영상 — 기존 KYUNE 영상 유지 */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/hero/seagulls-poster.jpg"
+      >
+        <source src="/hero/seagulls.webm" type="video/webm" />
+        <source src="/hero/seagulls.mp4" type="video/mp4" />
+      </video>
+      {/* 모션 최소화 설정 시 정지 이미지 */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/hero/seagulls-poster.jpg"
+        alt=""
+        className="absolute inset-0 hidden h-full w-full object-cover motion-reduce:block"
+      />
+      {/* 버튼 가독성을 위한 은은한 딤 */}
+      <div className="absolute inset-0 bg-ink/30" />
 
-      {/* New In — 상품 그리드를 맨 위로 */}
-      <section className="px-4 py-14 sm:px-6 sm:py-16">
-        <h2 className="mb-7 text-[11px] font-medium uppercase tracking-[0.24em] text-mist">
-          New In
-        </h2>
-        <div className="grid grid-cols-2 gap-x-6 gap-y-16 sm:grid-cols-3 sm:gap-x-10 lg:grid-cols-4 lg:gap-y-20">
-          {products.map((p, i) => (
-            <div key={p.slug} className="reveal" data-d={String(i % 4)}>
-              <ProductCard product={p} />
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* 중앙: 로고 + 세로 메뉴 */}
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 py-24">
+        <Link href="/" aria-label="KYUNE 홈" className="text-white">
+          <Logo className="h-9 w-auto sm:h-11" />
+        </Link>
 
-      {/* Ritual statement — 풀블리드 인물컷 밴드 */}
-      <section className="relative overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={bandImage}
-          alt=""
-          className="h-[82vh] min-h-[560px] w-full object-cover"
-        />
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-ink/35 px-6 text-center">
-          <p className="reveal font-mono text-[11px] uppercase tracking-[0.32em] text-white">
-            Kyune Ritual
-          </p>
-          <p
-            className="reveal mx-auto mt-6 max-w-2xl text-xl font-medium leading-[1.55] tracking-[-0.01em] text-white sm:text-[26px]"
-            data-d="1"
-          >
-            아침과 밤, 하루의 양 끝을 정돈하는 일.
-            <br /> 웰니스는 거기서 시작됩니다.
-          </p>
-        </div>
-      </section>
-
-      {/* Morning / Night collections — 상품이 있는 컬렉션만 */}
-      {collections.length > 1 && (
-        <section className="grid gap-3 px-4 pt-14 sm:grid-cols-2 sm:gap-4 sm:px-6 sm:pt-16">
-          {collections.map((c) => (
+        <nav className="mt-12 flex w-full max-w-[360px] flex-col gap-3">
+          {menu.map((item) => (
             <Link
-              key={c.label}
-              href={c.href}
-              className="group relative block overflow-hidden"
+              key={item.label}
+              href={item.href}
+              className="rounded-xl border border-white/80 py-4 text-center text-[12px] font-medium uppercase tracking-[0.2em] text-white transition-colors duration-200 hover:bg-white hover:text-ink"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={c.image}
-                alt={c.alt}
-                className="aspect-square w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] sm:aspect-[4/3]"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="bg-paper px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.26em] transition-colors group-hover:bg-ink group-hover:text-paper">
-                  {c.label} ({c.count})
-                </span>
-              </div>
+              {item.label}
             </Link>
           ))}
-        </section>
-      )}
+        </nav>
+      </div>
 
-      {/* 하단 배너 — 인물컷 + 카피 스플릿 */}
-      <section className="grid sm:grid-cols-2">
-        <div className="relative min-h-[320px] overflow-hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={bannerImage}
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </div>
-        <div className="flex flex-col justify-center bg-ink px-6 py-20 sm:px-12 sm:py-28">
-          {SUPPLEMENTS_ENABLED ? (
-            <>
-              <p className="reveal font-mono text-[10px] uppercase tracking-[0.32em] text-paper">
-                Supplement Subscription
-              </p>
-              <p
-                className="reveal mt-6 max-w-md text-xl font-medium leading-[1.55] tracking-[-0.01em] text-paper sm:text-[26px]"
-                data-d="1"
-              >
-                오브제는 한 번,
-                <br />그 안은 매달 새롭게.
-              </p>
-              <p
-                className="reveal mt-6 max-w-md text-[14px] leading-8 text-paper"
-                data-d="2"
-              >
-                KYUNE이 성분과 브랜드를 검증해 셀렉한 영양제가 매달 리추얼에
-                맞춰 도착합니다. 월 59,000원부터, 1·3·6·12개월 플랜.
-              </p>
-              <Link
-                href="/subscribe"
-                className="reveal mt-10 inline-block w-fit bg-paper px-7 py-3 text-[11px] font-medium uppercase tracking-[0.26em] text-ink transition-colors hover:bg-cream"
-                data-d="3"
-              >
-                Subscribe
-              </Link>
-            </>
+      {/* 하단 네비게이션 */}
+      <div className="relative z-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-6 pb-9 text-[11px] font-medium uppercase tracking-[0.16em] text-white/90">
+        {bottomNav.map((item) =>
+          item.external ? (
+            <a
+              key={item.label}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              className="transition-opacity hover:opacity-60"
+            >
+              {item.label}
+            </a>
           ) : (
-            <>
-              <p className="reveal font-mono text-[10px] uppercase tracking-[0.32em] text-paper">
-                Kyune — Living Wellness
-              </p>
-              <p
-                className="reveal mt-6 max-w-md text-[15px] leading-8 text-paper"
-                data-d="1"
-              >
-                KYUNE는 리빙 웰니스 브랜드입니다.
-                <br />
-                <br />
-                매일 쓰는 웰니스 소품을 스틸로 만들어요.
-                <br />
-                합리적인 가격에, 좀 다른 물건을 제안합니다.
-              </p>
-              <p
-                className="reveal mt-10 max-w-md text-xl font-medium leading-[1.55] tracking-[-0.01em] text-paper sm:text-[26px]"
-                data-d="2"
-              >
-                당연한 시간을
-                <br />
-                다시 보게 만드는 물건.
-              </p>
-              <p
-                className="reveal mt-6 max-w-md text-[15px] leading-8 text-paper"
-                data-d="3"
-              >
-                약 먹는 시간, 향 피우는 시간, 잠드는 시간.
-                <br />
-                누구나 있는 시간인데 아무도 신경 안 쓰는 시간.
-                <br />
-                거기에 놓일 물건을 고민하고,
-                <br />
-                스틸을 접어서 만들어요.
-              </p>
-              <Link
-                href="/about"
-                className="reveal mt-10 inline-block w-fit bg-paper px-7 py-3 text-[11px] font-medium uppercase tracking-[0.26em] text-ink transition-colors hover:bg-cream"
-                data-d="4"
-              >
-                About
-              </Link>
-            </>
-          )}
-        </div>
-      </section>
-    </div>
+            <Link
+              key={item.label}
+              href={item.href}
+              className="transition-opacity hover:opacity-60"
+            >
+              {item.label}
+            </Link>
+          )
+        )}
+        <span aria-label="언어">
+          <span className="underline underline-offset-4">KR</span>
+          <span className="text-white/45"> / INT</span>
+        </span>
+      </div>
+    </section>
   );
 }

@@ -21,6 +21,7 @@ const nav = [
   },
   { href: "/subscribe", label: "SUBSCRIBE", requiresSupplements: true },
   { href: "/about", label: "ABOUT" },
+  { href: "/archive", label: "ARCHIVE" },
   { href: "/contact", label: "CONTACT" },
 ].filter((item) => {
   if (item.requiresSupplements && !SUPPLEMENTS_ENABLED) return false;
@@ -109,6 +110,9 @@ export default function Header() {
   const linkColor = overHero
     ? "text-white hover:text-white"
     : "text-ink hover:text-accent";
+
+  // 메인은 LLEGE 스타일 런처(자체 로고·메뉴)라 상단 헤더를 숨긴다.
+  if (isHome) return null;
 
   return (
     <header
