@@ -96,6 +96,12 @@
       "sourceType": "github",
       "skillPath": "theme-factory/SKILL.md",
       "computedHash": "93e78aa44f8fa00bb2c0608f400de1e1dcd6494611dd8ea27c867654240c7bcd"
+    },
+    "threeui": {
+      "source": "MengTo/threeui",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "note": "wrapper skill authored locally; upstream repo is a component library without SKILL.md"
     }
   }
 }
